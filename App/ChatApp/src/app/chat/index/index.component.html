@@ -1,0 +1,1074 @@
+<div class="layout-wrapper d-lg-flex">
+  <div class="side-menu flex-lg-column me-lg-1">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+      <a routerLink="/" class="logo logo-dark">
+        <span class="logo-sm">
+          <img src="assets/images/logo.svg" alt="" height="30">
+        </span>
+      </a>
+
+      <a routerLink="/" class="logo logo-light">
+        <span class="logo-sm">
+          <img src="assets/images/logo.svg" alt="" height="30">
+        </span>
+      </a>
+    </div>
+    <!-- end navbar-brand-box -->
+
+    <!-- Start side-menu nav -->
+    <div class="flex-lg-column my-auto">
+      <ul class="nav nav-pills side-menu-nav justify-content-center" role="tablist">
+        <li class="nav-item" ngbTooltip="{{'tooltip.profile' | translate}}">
+          <a class="nav-link" id="pills-user-tab" (click)="activetab=1" href="javascript: void(0);"
+             [ngClass]="{'active': activetab === 1}">
+            <i class="ri-user-2-line"></i>
+          </a>
+        </li>
+        <li class="nav-item" ngbTooltip="{{'tooltip.chats' | translate}}">
+          <a class="nav-link active" id="pills-chat-tab" (click)="activetab=2" href="javascript: void(0);"
+             [ngClass]="{'active': activetab === 2}">
+            <i class="ri-message-3-line"></i>
+          </a>
+        </li>
+        <li class="nav-item" ngbTooltip="{{'tooltip.contacts' | translate}}" placement="top">
+          <a class="nav-link" id="pills-contacts-tab" (click)="setActiveTab(4)"
+             [ngClass]="{'active': activetab === 4}">
+            <i class="ri-contacts-line"></i>
+          </a>
+        </li>
+        <li class="nav-item" ngbTooltip="{{'tooltip.settings' | translate}}">
+          <a class="nav-link" id="pills-setting-tab" (click)="activetab=5" href="javascript: void(0);"
+             [ngClass]="{'active': activetab === 5}">
+            <i class="ri-settings-2-line"></i>
+          </a>
+        </li>
+
+
+        <li class="nav-item dropdown profile-user-dropdown d-inline-block d-lg-none" ngbDropdown placement="top">
+          <a class="nav-link dropdown-toggle" href="javascript: void(0);" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+            <img *ngIf="hasUserImage(currentUser)" src="{{currentUserImgSrc}}" class="profile-user rounded-circle">
+            <div class="avatar-xs" *ngIf="!hasUserImage(currentUser)">
+                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                        {{getUserFirstLetter(currentUser)}}
+                      </span>
+            </div>
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item" href="javascript:void(0);">{{'chat.profiledropdown.profile' | translate}} <i
+              class="ri-profile-line float-end text-muted"></i></a>
+            <a class="dropdown-item" href="javascript:void(0);">{{'chat.profiledropdown.setting' | translate}} <i
+              class="ri-settings-3-line float-end text-muted"></i></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript: void(0);" (click)="logout()">{{'chat.profiledropdown.logout' |
+              translate}} <i class="ri-logout-circle-r-line float-end text-muted"></i></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- end side-menu nav -->
+
+    <div class="flex-lg-column d-none d-lg-block">
+      <ul class="nav side-menu-nav justify-content-center">
+
+        <li class="nav-item btn-group dropup profile-user-dropdown" ngbDropdown placement="top-left">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" ngbDropdownToggle
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-global-line"></i>
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item" *ngFor="let item of languageService.listLang" (click)="setLanguage(item.lang)"
+               [ngClass]="{'active': lang === item.lang}" href="javascript: void(0);">
+              <img src="{{item.flag}}" alt="user-image" class="me-1" height="12"> <span
+              class="align-middle">{{item.text| translate}}</span>
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="light-dark" href="javascript:void(0);" ngbTooltip="{{'tooltip.theme' | translate}}">
+            <i class="ri-sun-line theme-mode-icon layout-mode-dark" (click)="changeMode('dark')"></i>
+            <i class="ri-sun-line theme-mode-icon layout-mode-light" (click)="changeMode('light')"></i>
+          </a>
+        </li>
+
+        <li class="nav-item btn-group dropup profile-user-dropdown" ngbDropdown placement="top-left">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" ngbDropdownToggle
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <img *ngIf="hasUserImage(currentUser)" src="{{currentUserImgSrc}}" alt="" class="profile-user rounded-circle">
+            <div class="avatar-xs" *ngIf="!hasUserImage(currentUser)">
+                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                        {{getUserFirstLetter(currentUser)}}
+                      </span>
+            </div>
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <a role="button" class="dropdown-item" (click)="activetab=1">{{'chat.profiledropdown.profile' | translate}} <i
+              class="ri-profile-line float-end text-muted"></i></a>
+            <a role="button" class="dropdown-item" (click)="activetab=5">{{'chat.profiledropdown.setting' | translate}} <i
+              class="ri-settings-3-line float-end text-muted"></i></a>
+            <div class="dropdown-divider"></div>
+            <a role="button" class="dropdown-item" href="javascript: void(0);" (click)="logout()">{{'chat.profiledropdown.logout' |
+              translate}} <i class="ri-logout-circle-r-line float-end text-muted"></i></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Side menu user -->
+  </div>
+  <!-- start chat-leftsidebar -->
+  <div class="chat-leftsidebar me-lg-1">
+    <div class="tab-content">
+      <!-- Start Profile tab-pane -->
+      <div id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab" *ngIf="activetab === 1">
+        <app-profile></app-profile>
+      </div>
+      <!-- End Profile tab-pane-->
+
+      <!-- Start chats tab-pane -->
+      <div id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab" *ngIf="activetab === 2">
+        <!-- Start chats content -->
+        <div>
+
+          <div class="px-4 pt-4">
+            <h4 class="mb-4">{{'chat.tabs.chats.title' | translate}}</h4>
+            <div class="search-box chat-search-box">
+              <div class="input-group mb-3 rounded-3">
+                <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
+                  <i class="ri-search-line search-icon font-size-18"></i>
+                </span>
+                <input type="text" class="form-control bg-light"
+                       placeholder="{{'chat.tabs.chats.search.placeholder' | translate}}"
+                       aria-label="Search messages or users" aria-describedby="basic-addon1" (keyup)="ContactSearch()"
+                       id="searchContact" autocomplete="off">
+              </div>
+            </div>
+          </div> <!-- .p-4 -->
+
+          <!-- Start chat-message-list -->
+          <div class="px-2">
+
+            <perfect-scrollbar class="chat-message-list">
+              <ul class="list-unstyled chat-list chat-user-list">
+                <li *ngFor="let conversation of conversations" [ngClass]="{'typing': false}" (click)="showConversation($event,conversation.id)">
+                  <a href="javascript:void(0);">
+                    <div class="d-flex">
+                      <div class="chat-user-img align-self-center me-3 ms-0"
+                           [ngClass]="{
+                            'online': friendsStatusMap.get(this.conversationFriendDetailsMap.get(this.conversation.id).user.id) === 'online',
+                            'offline': friendsStatusMap.get(this.conversationFriendDetailsMap.get(this.conversation.id).user.id) === 'offline',
+                            'away': friendsStatusMap.get(this.conversationFriendDetailsMap.get(this.conversation.id).user.id) === 'away'}">
+                        <img *ngIf="hasUserImageByConversationId(this.conversation.id)"
+                             src="{{getUserImageSrcByConversationId(this.conversation.id)}}" class="rounded-circle avatar-xs" alt="">
+                        <div class="avatar-xs" *ngIf="!hasUserImageByConversationId(this.conversation.id)">
+                          <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                            {{getUserFirstLetter(this.conversationFriendDetailsMap.get(this.conversation.id).user)}}
+                          </span>
+                        </div>
+
+                        <span class="user-status "></span>
+                      </div>
+
+                      <div class="flex-grow-1 overflow-hidden">
+                        <h5 class="text-truncate font-size-15 mb-1">{{conversationFriendDetailsMap.get(conversation.id).user.name}}</h5>
+                        <!--<p *ngIf="user.isTyping" class="chat-user-message text-truncate mb-0">typing<span
+                          class="animate-typing">
+                            <span class="dot ms-1"></span>
+                            <span class="dot ms-1"></span>
+                            <span class="dot ms-1"></span>
+                          </span></p>-->
+                        <p *ngIf="conversationLatestMessageMap.get(conversation.id)" class="chat-user-message text-truncate mb-0" [ngSwitch]="conversationLatestMessageMap.get(conversation.id).type">
+                          <span *ngSwitchCase="'text'">{{conversationLatestMessageMap.get(conversation.id).content}}</span>
+                          <i *ngSwitchCase="'deleted'">{{MESSAGE_DELETED_MSG | translate}}</i>
+                          <i *ngSwitchDefault>{{ATTACHMENT_SENT_MSG}}</i></p>
+                      </div>
+                      <div *ngIf="conversationLatestMessageMap.get(conversation.id)" class="font-size-11">{{conversationLatestMessageMap.get(conversation.id).updatedAt | date:messageTimeFormat}}</div>
+                      <div *ngIf="conversationDetailsMap.get(conversation.id).noUnread !== 0" class="unread-message">
+                        <span class="badge badge-soft-danger rounded-pill"><!--{{user.unRead}}--> {{conversationDetailsMap.get(conversation.id).noUnread}}</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </perfect-scrollbar>
+
+          </div>
+          <!-- End chat-message-list -->
+        </div>
+        <!-- Start chats content -->
+      </div>
+      <!-- End chats tab-pane -->
+
+      <!-- Start contacts tab-pane -->
+      <div id="pills-contacts" role="tabpanel" aria-labelledby="pills-contacts-tab" *ngIf="activetab === 4">
+        <ngx-spinner type="ball-scale-multiple" [fullScreen]="false" [name]="FRIEND_LIST_SPINNER"></ngx-spinner>
+
+        <app-contacts (goToConversationEvent)="goToConversationEvent($event)" [friendsArray]="friendsArray" [events]="contactsEventsSubject"></app-contacts>
+      </div>
+      <!-- End contacts tab-pane -->
+
+      <!-- Start settings tab-pane -->
+      <div id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab" *ngIf="activetab === 5">
+        <app-settings></app-settings>
+      </div>
+      <!-- End settings tab-pane -->
+    </div>
+
+  </div>
+
+  <div *ngIf="activetab !== 4" class="chat-welcome-section">
+    <div class="row w-100 justify-content-center">
+      <div class="col-xxl-5 col-md-7">
+        <div class="p-4 text-center">
+          <div class="avatar-xl mx-auto mb-4">
+            <div class="avatar-title bg-secondary rounded-circle">
+              <svg data-v-5e8ea5c2="" xmlns="http://www.w3.org/2000/svg" width="70px" height="65px" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="feather feather-message-square">
+                <path data-v-5e8ea5c2="" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <h4 class="d-inline px-3 py-2 rounded-pill bg-secondary text-white fs-4"> {{'chat.title' | translate}} </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start User chat -->
+  <div *ngIf="activetab !== 4" class="user-chat w-100 d-none" id="chat-room">
+    <div class="d-lg-flex">
+      <!-- start chat conversation section -->
+      <div class="w-100 position-relative">
+
+        <div class="p-3 p-lg-4 border-bottom">
+          <div class="row align-items-center">
+            <div class="col-sm-4 col-8">
+              <div class="d-flex align-items-center">
+                <div class="d-block d-lg-none me-2 ms-0">
+                  <a href="javascript: void(0);" class="user-chat-remove text-muted font-size-16 p-2"
+                     (click)="closeUserChat()"><i class="ri-arrow-left-s-line"></i></a>
+                </div>
+                <div class="me-3 ms-0">
+
+                  <img *ngIf="hasUserImage(friendUser)" src="{{friendUserImgSrc}}" class="rounded-circle avatar-xs" alt="">
+                  <div class="avatar-xs" *ngIf="!hasUserImage(friendUser)">
+                          <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                            {{getUserFirstLetter(friendUser)}}
+                          </span>
+                  </div>
+                </div>
+                <div class="flex-grow-1 overflow-hidden">
+                  <h5 *ngIf="friendUser" class="font-size-16 mb-0 text-truncate">
+                    <a href="javascript:void(0);" class="text-reset user-profile-show username"
+                       (click)="onChatInfoClicked(userInfo)">{{friendUser.name}}</a>
+                    <i class="ri-record-circle-fill font-size-10 d-inline-block ms-1"
+                       [ngClass]="{'text-success': friendUser.status === 'online', 'text-warning': friendUser.status === 'away'}"></i>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8 col-4">
+              <ul class="list-inline user-chat-nav text-end mb-0">
+                <li class="list-inline-item">
+                  <div class="dropdown" ngbDropdown>
+                    <button class="btn nav-btn dropdown-toggle" ngbDropdownToggle type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                      <i class="ri-search-line"></i>
+                    </button>
+                    <div class="dropdown-menu p-0 dropdown-menu-right dropdown-menu-md" ngbDropdownMenu>
+                      <div class="search-box p-2">
+                        <input type="text" class="form-control bg-light border-0"
+                               placeholder="{{'chat.tabs.chats.chatpanelheader.search.placeholder' | translate}}"
+                               (keyup)="MessageSearch()" id="searchMessage">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!--<li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
+                  <button type="button" class="btn nav-btn" data-bs-toggle="modal" data-bs-target="#audiocallModal"
+                          (click)="openCallModal(callContent)">
+                    <i class="ri-phone-line"></i>
+                  </button>
+                </li>-->
+                <!--<ng-template #callContent let-modal>
+                  <div class="modal-body">
+                    <div class="text-center p-4">
+                      <div class="avatar-lg mx-auto mb-4">
+                        <img src="{{userProfile}}" alt="" class="img-thumbnail rounded-circle">
+                      </div>
+                      <h5 class="text-truncate">{{(userName | translate)}}</h5>
+                      <p class="text-muted">Start Audio Call</p>
+                      <div class="mt-5">
+                        <ul class="list-inline mb-1">
+                          <li class="list-inline-item px-2 me-2 ms-0">
+                            <button type="button" class="btn btn-danger avatar-sm rounded-circle"
+                                    data-bs-dismiss="modal" (click)="modal.close('Close click')">
+                              <span class="avatar-title bg-transparent font-size-20">
+                                <i class="ri-close-fill"></i>
+                              </span>
+                            </button>
+                          </li>
+                          <li class="list-inline-item px-2">
+                            <button type="button" class="btn btn-success avatar-sm rounded-circle">
+                              <span class="avatar-title bg-transparent font-size-20">
+                                <i class="ri-phone-fill"></i>
+                              </span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>-->
+                <!--<li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
+                  <button type="button" class="btn nav-btn" data-bs-toggle="modal" data-bs-target="#videocallModal"
+                          (click)="openVideoModal(videoContent)">
+                    <i class="ri-vidicon-line"></i>
+                  </button>
+                </li>-->
+                <!--<ng-template #videoContent let-modal>
+                  <div class="modal-body">
+                    <div class="text-center p-4">
+                      <div class="avatar-lg mx-auto mb-4">
+                        <img src="{{userProfile}}" alt="" class="img-thumbnail rounded-circle">
+                      </div>
+                      <h5 class="text-truncate">{{(userName | translate)}}</h5>
+                      <p class="text-muted mb-0">Start Video Call</p>
+                      <div class="mt-5">
+                        <ul class="list-inline mb-1">
+                          <li class="list-inline-item px-2 me-2 ms-0">
+                            <button type="button" class="btn btn-danger avatar-sm rounded-circle"
+                                    data-bs-dismiss="modal" (click)="modal.close('Close click')">
+                              <span class="avatar-title bg-transparent font-size-20">
+                                <i class="ri-close-fill"></i>
+                              </span>
+                            </button>
+                          </li>
+                          <li class="list-inline-item px-2">
+                            <button type="button" class="btn btn-success avatar-sm rounded-circle">
+                              <span class="avatar-title bg-transparent font-size-20">
+                                <i class="ri-vidicon-fill"></i>
+                              </span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>-->
+                <li class="list-inline-item d-none d-lg-inline-block">
+                  <button type="button" class="btn nav-btn user-profile-show" (click)="onChatInfoClicked(userInfo)">
+                    <i class="ri-user-2-line"></i>
+                  </button>
+                </li>
+                <!--<li class="list-inline-item">
+                  <div class="dropdown" ngbDropdown>
+                    <button class="btn nav-btn dropdown-toggle" ngbDropdownToggle type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                      <i class="ri-more-fill"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                      <a class="dropdown-item d-block d-lg-none user-profile-show" (click)="showUserProfile()"
+                         href="javascript: void(0);">{{'chat.chatpanelheader.dropdown.viewprofile' | translate}} <i
+                        class="ri-user-2-line float-end text-muted"></i></a>
+                      <a class="dropdown-item" href="javascript:void(0);">{{'chat.chatpanelheader.dropdown.archive' |
+                        translate}} <i class="ri-archive-line float-end text-muted"></i></a>
+                      <a class="dropdown-item" href="javascript:void(0);">{{'chat.chatpanelheader.dropdown.muted' |
+                        translate}} <i class="ri-volume-mute-line float-end text-muted"></i></a>
+                      <a class="dropdown-item" href="javascript:void(0);"
+                         (click)="deleteAllMessage($event)">{{'chat.chatpanelheader.dropdown.delete' | translate}}<i
+                        class="ri-delete-bin-line float-end text-muted"></i></a>
+                    </div>
+                  </div>
+                </li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end chat user head -->
+        <div id="users-chat" class="position-relative">
+          <!-- start chat conversation -->
+          <ngx-spinner type="ball-scale-multiple" [fullScreen]="false" [name]="CHAT_SPINNER"></ngx-spinner>
+          <ngx-simplebar class="chat-conversation p-3 p-lg-4" #scrollRef>
+            <ul  class="list-unstyled mb-0" id="users-conversation">
+              <div *ngIf="selectedConversationNextToken" class="text-center">
+                <button (click)="fetchMoreMessages()" class="btn btn-outline-light"><i class="ri-download-fill"></i>
+                </button>
+              </div>
+              <li class="chats" *ngFor="let message of selectedConversationMessages;let i =index;"
+                  [ngClass]="{'right': alignRight(message)}">
+                <div class="chat-day-title" *ngIf="isDayDifference(i)">
+                  <span class="title">{{getDay(i) | translate}}</span>
+                </div>
+                <div class="conversation-list"  >
+                  <div class="chat-avatar" *ngIf="alignRight(message)">
+                    <img *ngIf="hasUserImage(currentUser)" src="{{currentUserImgSrc}}" alt="">
+                    <div class="avatar-xs" *ngIf="!hasUserImage(currentUser)">
+                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                        {{getUserFirstLetter(currentUser)}}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="chat-avatar" *ngIf="!alignRight(message)">
+                    <img *ngIf="hasUserImage(friendUser)" src="{{friendUserImgSrc}}" alt="">
+                    <div class="avatar-xs" *ngIf="!hasUserImage(friendUser)">
+                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                        {{getUserFirstLetter(friendUser)}}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="user-chat-content">
+                    <div class="ctext-wrap">
+                      <div class="ctext-wrap-content">
+
+                          <div *ngIf="message.replyToMessage" [ngClass]="message.authorId === currentUser.id? 'replymessage-block': 'replymessage-block2'" class="mb-0 d-flex align-items-start" >
+                            <div class="flex-grow-1">
+                              <h5 class="conversation-name">{{message.authorId === currentUser.id ? "Me": friendUser.name}}</h5>
+                              <p class="mb-0"[ngSwitch]="message.replyToMessage.type">
+                                <span *ngSwitchCase="'text'">{{message.replyToMessage.content}}</span>
+                                <i *ngSwitchCase="'deleted'">{{MESSAGE_DELETED_MSG | translate}}</i>
+                                <i *ngSwitchDefault>{{message.replyToMessage.content.split('/').pop()}}</i>
+                              </p>
+                            </div>
+                            <div class="flex-shrink-0">
+                              <button type="button" class="btn btn-sm btn-link mt-n2 me-n3 font-size-18">
+                              </button>
+                            </div>
+                          </div>
+
+                        <p class="mb-0 messageText">
+                          {{message.type === "text" ? message.content: ''}}
+                          <i *ngIf="message.type === 'deleted'">{{MESSAGE_DELETED_MSG | translate}}</i>
+                           <span class="animate-typing" *ngIf="false">
+                            <span class="dot ms-1"></span>
+                            <span class="dot ms-1"></span>
+                            <span class="dot ms-1"></span>
+                          </span>
+                        </p>
+                        <ul class="list-inline message-img mb-0" *ngIf='message.type.includes("image")'>
+                          <li class="list-inline-item message-img-list"
+                              *ngFor="let imageSrc of [this.selectedMessagesUrlOfMediaType.get(message.id)];let x=index;">
+                            <div>
+                              <a class="popup-img d-inline-block m-1 p-0" href="javascript:void(0);" [title]="message.content" >
+                                <app-image-with-loading
+                                  image="{{imageSrc}}"
+                                  name="{{message.id}}">
+                                </app-image-with-loading>
+
+                                <!--<img src="{{imageSrc}}" (load)="onImageLoad($event)" alt="" class="rounded border" (click)="openImage(message.id)">-->
+                              </a>
+                            </div>
+                          </li>
+                        </ul>
+
+                        <!--Generic file type--->
+                        <div class="card p-2 mb-2 file-box" *ngIf='!message.type.includes("image") && message.type !== "text" && !message.type.includes("deleted")'>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar-sm me-3 ms-0">
+                              <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                                <i class="ri-file-text-fill"></i>
+                              </div>
+                            </div>
+                            <div class="d-flex-body">
+                              <div class="text-start">
+                                <h5 class="font-size-14 mb-1">{{message.content.split("/").pop()}}</h5>
+                                <p class="text-muted font-size-13 mb-0">{{getFileSize(selectedMessagesOfMediaMetadata.get(message.id))}} </p>
+                              </div>
+                            </div>
+
+                            <div class="ms-4">
+                              <ul class="list-inline mb-0 font-size-20">
+                                <li class="list-inline-item">
+                                  <a href="{{this.selectedMessagesUrlOfMediaType.get(message.id)}}" class="text-muted">
+                                    <i class="ri-download-2-line"></i>
+                                  </a>
+                                </li>
+                                <li class="list-inline-item dropdown" ngbDropdown>
+                                  <a class="dropdown-toggle text-muted" href="javascript:void(0);" ngbDropdownToggle
+                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-more-fill"></i>
+                                  </a>
+                                  <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                       (click)="replyMessage($event, message)">{{'chat.tabs.chats.messages.dropdown.reply' | translate}} <i
+                                      class="ri-reply-line float-end text-muted"></i></a>
+                                    <a *ngIf="message.authorId === currentUser.id" class="dropdown-item" href="javascript:void(0);"
+                                       (click)="deleteMessage(message.id, i)">{{'chat.tabs.chats.messages.filedropdown.delete' |
+                                      translate}}
+                                      <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <p class="chat-time mb-0" *ngIf="true">
+                          <i class="ri-time-line align-middle"></i>
+                          <span class="align-middle">{{message.createdAt | date:messageTimeFormat}} </span>
+                        </p>
+                      </div>
+
+                      <!--Text file type Dropdown--->
+                      <div class="dropdown align-self-start" ngbDropdown *ngIf="message.content && message.type === 'text'">
+                        <a class="dropdown-toggle" href="javascript:void(0);" role="button" ngbDropdownToggle
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-2-fill"></i>
+                        </a>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="replyMessage($event, message)">{{'chat.tabs.chats.messages.dropdown.reply' | translate}} <i
+                            class="ri-reply-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="copyMessage(message)">{{'chat.tabs.chats.messages.dropdown.copy' | translate}} <i
+                            class="ri-file-copy-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="centerModal(centerDataModal, message)">{{'chat.tabs.chats.messages.dropdown.forward' | translate}} <i
+                            class="ri-chat-forward-line float-end text-muted"></i></a>
+                          <a *ngIf="message.authorId === currentUser.id" class="dropdown-item" href="javascript:void(0);"
+                             (click)="deleteMessage(message.id, i)">{{'chat.tabs.chats.messages.dropdown.delete' | translate}}<i
+                            class="ri-delete-bin-line float-end text-muted"></i></a>
+                        </div>
+                      </div>
+
+                      <!--Image file type dropdown--->
+                      <div class="dropdown align-self-start" ngbDropdown *ngIf="message.content && message.type.includes('image')">
+                        <a class="dropdown-toggle" href="javascript:void(0);" role="button" ngbDropdownToggle
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-2-fill"></i>
+                        </a>
+                        <div class="dropdown-menu" ngbDropdownMenu *ngFor="let imageSrc of [this.selectedMessagesUrlOfMediaType.get(message.id)];let x=index;">
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="replyMessage($event, message)">{{'chat.tabs.chats.messages.dropdown.reply' | translate}} <i
+                            class="ri-reply-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="{{imageSrc}}">{{'chat.tabs.chats.messages.dropdown.save' | translate}}<i
+                            class="ri-download-2-line float-end text-muted"></i></a>
+                          <!--<a class="dropdown-item" href="javascript:void(0);"
+                             (click)="copyMessage($event)">{{'chat.tabs.chats.messages.dropdown.copy' | translate}} <i
+                            class="ri-file-copy-line float-end text-muted"></i></a>-->
+                          <a *ngIf="message.authorId === currentUser.id" class="dropdown-item" href="javascript:void(0);"
+                             (click)="deleteMessage(message.id, i)">{{'chat.tabs.chats.messages.dropdown.delete' | translate}}<i
+                            class="ri-delete-bin-line float-end text-muted"></i></a>
+                        </div>
+                      </div>
+
+                      <!--Deleted file type dropdown--->
+                      <div class="dropdown align-self-start" ngbDropdown *ngIf="message.type === 'deleted'">
+                        <a class="dropdown-toggle" href="javascript:void(0);" role="button" ngbDropdownToggle
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-2-fill"></i>
+                        </a>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="replyMessage($event, message)">{{'chat.tabs.chats.messages.dropdown.reply' | translate}} <i
+                            class="ri-reply-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="copyMessage(message)">{{'chat.tabs.chats.messages.dropdown.copy' | translate}} <i
+                            class="ri-file-copy-line float-end text-muted"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <!--<div class="ctext-wrap" *ngIf="data.message2">
+                      <div class="ctext-wrap-content">
+                        <p class="mb-0">
+                          {{data.message2 | translate}}
+                        </p>
+                        <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span
+                          class="align-middle">{{data.time | translate}}</span></p>
+                      </div>
+                      <div class="dropdown align-self-start" ngbDropdown>
+                        <a class="dropdown-toggle" href="javascript:void(0);" role="button" ngbDropdownToggle
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-2-fill"></i>
+                        </a>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="replyMessage($event)">{{'chat.tabs.chats.messages.dropdown.reply' | translate}} <i
+                            class="ri-reply-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="copyMessage($event)">{{'chat.tabs.chats.messages.dropdown.copy' | translate}} <i
+                            class="ri-file-copy-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);">{{'chat.tabs.chats.messages.dropdown.save' |
+                            translate}} <i class="ri-save-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="centerModal(centerDataModal)">{{'chat.tabs.chats.messages.dropdown.forward' | translate}} <i
+                            class="ri-chat-forward-line float-end text-muted"></i></a>
+                          <a class="dropdown-item" href="javascript:void(0);"
+                             (click)="deleteMessage($event)">{{'chat.tabs.chats.messages.dropdown.delete' | translate}}<i
+                            class="ri-delete-bin-line float-end text-muted"></i></a>
+                        </div>
+                      </div>
+                    </div> -->
+                    <div class="conversation-name">
+                      <!--<span *ngIf="!alignRight(message)">{{conversationUserMap.get(selectedConversationId).email}}</span>-->
+                      <!--<span *ngIf="alignRight(message)">{{currentUser.email}}</span>-->
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </ngx-simplebar>
+          <div class="alert alert-warning alert-dismissible copyclipboard-alert px-4 fade" id="copyClipBoard"
+               role="alert">
+            Message copied
+          </div>
+        </div>
+        <!-- end chat conversation end -->
+
+        <!-- Image pop up-->
+        <div *ngIf="fileToUpload" _ngcontent-hes-c189="" class="replyCard" [class.show]="fileToUpload">
+          <div _ngcontent-hes-c189="" class="card mb-0">
+            <div _ngcontent-hes-c189="" class="card-body py-3">
+              <div _ngcontent-hes-c189="" class="replymessage-block mb-0 d-flex align-items-start">
+                <div _ngcontent-hes-c189="" class="flex-grow-1">
+                  <h5 _ngcontent-hes-c189="" *ngIf="!fileToUpload.type.startsWith('image')" class="conversation-name">{{fileToUpload.name}}</h5>
+                  <div _ngcontent-hes-c189="" class="mb-0">
+                  <ul class="list-inline message-img mb-0 form-control form-control-lg bg-light border-light" *ngIf="fileToUpload">
+                    <li class="list-inline-item message-img-list">
+                      <div style="position: relative;">
+                        <a class="popup-img d-inline-block p-0" href="javascript:void(0);" title="{{fileToUpload.name}}">
+                          <img [ngClass]="fileToUpload.type.startsWith('image')? 'isImage': 'isFile'"
+                               [src]="fileToUploadSrc" alt="" class="rounded border">
+                        </a>
+                        <button style="position: absolute; top: 0; right: 0; max-width: 100px; max-height: 100px;" class="btn btn-danger btn-sm" (click)="removeImage(null)">x</button>
+                      </div>
+                    </li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- start chat input section -->
+        <div class="p-4 p-lg-4 border-top mb-0 send-msg">
+          <form (ngSubmit)="sendMessage()" [formGroup]="formData" id="chatinput-form" enctype="multipart/form-data">
+            <div class="row no-gutters">
+              <div class="col">
+                <div [class]="">
+
+                  <span *ngIf="fileToUpload" class="form-control form-control-lg bg-light border-light"
+                         placeholder="{{'chat.tabs.chats.messages.input.enter-message' | translate}}">{{'chat.tabs.chats.messages.input.attached-file' | translate}} "{{fileToUpload.name}}"</span>
+
+                  <input *ngIf="!fileToUpload" type="text" class="form-control form-control-lg bg-light border-light"
+                         placeholder="{{'chat.tabs.chats.messages.input.enter-message' | translate}}" formControlName="message" [(ngModel)]="emoji" (blur)="onBlur()"
+                         (focus)="onFocus()" (paste)="onPaste($event)">
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="chat-input-links ms-md-2">
+                  <ul class="list-inline mb-0">
+                    <li *ngIf="!fileToUpload" class="list-inline-item">
+                      <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect"
+                              data-toggle="tooltip" data-placement="top" ngbTooltip="{{'tooltip.emoji' | translate}}" (click)="toggleEmojiPicker()"
+                              id="emoji-btn">
+                        <i class="ri-emotion-happy-line"></i>
+                      </button>
+                      <emoji-mart class="emoji-mart" *ngIf="showEmojiPicker" (emojiSelect)="addEmoji($event)"
+                                  title="Pick your emoji…"></emoji-mart>
+                    </li>
+                    <li class="list-inline-item">
+                      <label id="files" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
+                        <i class="ri-attachment-line"></i>
+                        <input name="fileInput" size="60" type="file" class="form-control-file d-none"
+                               (change)="onFileChange($event)">
+                      </label>
+                    </li>
+                    <li class="list-inline-item">
+                      <button type="submit"
+                              class="btn btn-primary font-size-16 btn-lg chat-send waves-effect waves-light">
+                        <i class="ri-send-plane-2-fill"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- end chat input section -->
+
+        <div *ngIf="!fileToUpload" _ngcontent-hes-c189="" class="replyCard" [class.show]="isReplyMessage">
+          <div _ngcontent-hes-c189="" class="card mb-0">
+            <div _ngcontent-hes-c189="" class="card-body py-3">
+              <div _ngcontent-hes-c189="" class="replymessage-block mb-0 d-flex align-items-start">
+                <div _ngcontent-hes-c189="" class="flex-grow-1">
+                  <h5 _ngcontent-hes-c189="" class="conversation-name">{{replyToMessageAuthor}}</h5>
+                  <p  _ngcontent-hes-c189="" class="mb-0">{{replyToMessageContent}}</p>
+                </div>
+                <div _ngcontent-hes-c189="" class="flex-shrink-0">
+                  <button _ngcontent-hes-c189="" type="button" id="close_toggle"
+                          class="btn btn-sm btn-link mt-n2 me-n3 fs-18 shadow-none" (click)="closeReplay()">
+                    <i _ngcontent-xeu-c127="" class="ri-close-line float-end fs-5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- end chat conversation section -->
+
+      <!-- <app-profile-detail></app-profile-detail> -->
+    </div>
+  </div>
+
+  <!-- Start users search -->
+  <div *ngIf="activetab === 4" class="user-chat w-100" id="users-room">
+    <div class="d-lg-flex">
+      <div class="w-100 position-relative">
+          <app-user-search (newConversationEvent)="onAddedConversation($event)" [friendIds]="friendIds"></app-user-search>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chat Info Sidebar -->
+<ng-template #userInfo let-offcanvas>
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+  </div>
+
+  <div class="offcanvas-body profile-offcanvas p-0">
+    <div class="text-center p-4 border-bottom">
+      <div class="mb-4">
+        <img src="{{friendUserImgSrc}}" class="rounded-circle avatar-lg img-thumbnail" alt="">
+      </div>
+      <h5 class="font-size-16 mb-1 text-truncate">{{friendUser.name | translate}}</h5>
+      <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 me-1"
+                                                  [ngClass]="{'text-success': friendUser.status === 'online', 'text-warning': friendUser.status === 'away'}"></i>
+        <span *ngIf="friendUser.status === Status.online">{{'chat.tabs.profile.status.active' | translate}}</span>
+        <span *ngIf="friendUser.status === Status.away">{{'chat.tabs.profile.status.away' | translate}}</span>
+        <span *ngIf="friendUser.status === Status.offline">{{'chat.tabs.profile.status.offline' | translate}}</span>
+      </p>
+    </div>
+    <!-- End profile user -->
+
+    <!-- Start user-profile-desc -->
+    <perfect-scrollbar class="p-4 user-profile-desc">
+      <!--<div class="text-muted">
+        <p class="mb-4"> {{'chat.rightpanel.message' | translate}}</p>
+      </div>-->
+
+      <div id="profile-user-accordion" class="custom-accordion">
+        <ngb-accordion #acc="ngbAccordion" activeIds="about" [closeOthers]="true">
+          <ngb-panel cardClass="card shadow-none border mb-2" id="about">
+            <ng-template ngbPanelTitle>
+              <h5 class="font-size-14 m-0">
+                <i class="ri-user-2-line me-2 align-middle d-inline-block"></i>
+                {{'chat.rightpanel.about.text' | translate}}
+              </h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <div>
+                <p class="text-muted mb-1">{{'chat.rightpanel.about.name.text' | translate}}</p>
+                <h5 class="font-size-14">{{friendUser.name}}</h5>
+              </div>
+
+              <div class="mt-4">
+                <p class="text-muted mb-1">{{'chat.rightpanel.about.email.text' | translate}}</p>
+                <h5 class="font-size-14">{{friendUser.email}}</h5>
+              </div>
+
+              <!--<div class="mt-4">
+                <p class="text-muted mb-1">{{'chat.rightpanel.about.time.text' | translate}}</p>
+                <h5 class="font-size-14">{{'chat.rightpanel.about.time.value' | translate}}</h5>
+              </div>
+
+              <div class="mt-4">
+                <p class="text-muted mb-1">{{'chat.rightpanel.about.location.text' | translate}}</p>
+                <h5 class="font-size-14 mb-0">{{'chat.rightpanel.about.location.value' | translate}}</h5>
+              </div>-->
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel cardClass="card shadow-none border mb-2" id="file">
+            <ng-template ngbPanelTitle>
+              <h5 class="font-size-14 m-0">
+                <i class="ri-attachment-line me-2 align-middle d-inline-block"></i>{{'chat.rightpanel.attachedfile.text'
+                | translate}}
+              </h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+
+              <div *ngFor="let message of selectedConversationMessages">
+                <div *ngIf="message.content && message.type !== 'text' && message.type !== 'deleted'" class="card p-2 border mb-2">
+                  <div class="d-flex align-items-center">
+                    <div class="avatar-sm me-3 ms-0">
+                      <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                        <i *ngIf="!message.type.includes('image')" class="ri-file-text-fill"></i>
+                        <i *ngIf="message.type.includes('image')" class="ri-image-fill"></i>
+                      </div>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="text-start">
+                        <h5 class="font-size-14 mb-1">{{message.content.split("/").pop()}}</h5>
+                        <p class="text-muted font-size-13 mb-0">{{getFileSize(selectedMessagesOfMediaMetadata.get(message.id))}}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="ms-4 me-0">
+                      <ul class="list-inline mb-0 font-size-18">
+                        <li class="list-inline-item">
+                          <a href="{{this.selectedMessagesUrlOfMediaType.get(message.id)}}" class="text-muted px-1">
+                            <i class="ri-download-2-line"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!--<div class="card p-2 border mb-2">
+                <div class="d-flex align-items-center">
+                  <div class="avatar-sm me-3 ms-0">
+                    <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                      <i class="ri-file-text-fill"></i>
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="text-start">
+                      <h5 class="font-size-14 mb-1">{{'chat.rightpanel.attachedfile.file1.name' | translate}}</h5>
+                      <p class="text-muted font-size-13 mb-0">{{'chat.rightpanel.attachedfile.file1.size' | translate}}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="ms-4 me-0">
+                    <ul class="list-inline mb-0 font-size-18">
+                      <li class="list-inline-item">
+                        <a href="javascript: void(0);" class="text-muted px-1">
+                          <i class="ri-download-2-line"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item dropdown" ngbDropdown>
+                        <a class="dropdown-toggle text-muted px-1" ngbDropdownToggle href="javascript:void(0);"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-fill"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.action' |
+                            translate}}</a>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.another' |
+                            translate}}</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.delete' |
+                            translate}}</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>-->
+              <!-- end card -->
+
+              <!--<div class="card p-2 border mb-2">
+                <div class="d-flex align-items-center">
+                  <div class="avatar-sm me-3 ms-0">
+                    <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                      <i class="ri-image-fill"></i>
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="text-start">
+                      <h5 class="font-size-14 mb-1">{{'chat.rightpanel.attachedfile.file2.name' | translate}}</h5>
+                      <p class="text-muted font-size-13 mb-0">{{'chat.rightpanel.attachedfile.file2.name' | translate}}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="ms-4 me-0">
+                    <ul class="list-inline mb-0 font-size-18">
+                      <li class="list-inline-item">
+                        <a href="javascript: void(0);" class="text-muted px-1">
+                          <i class="ri-download-2-line"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item dropdown" ngbDropdown>
+                        <a class="dropdown-toggle text-muted px-1" ngbDropdownToggle href="javascript: void(0);"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-fill"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.action' |
+                            translate}}</a>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.another' |
+                            translate}}</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.delete' |
+                            translate}}</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>-->
+              <!-- end card -->
+
+              <!--<div class="card p-2 border mb-2">
+                <div class="d-flex align-items-center">
+                  <div class="avatar-sm me-3 ms-0">
+                    <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                      <i class="ri-image-fill"></i>
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="text-start">
+                      <h5 class="font-size-14 mb-1">{{'chat.rightpanel.attachedfile.file3.name' | translate}}</h5>
+                      <p class="text-muted font-size-13 mb-0">{{'chat.rightpanel.attachedfile.file3.size' | translate}}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="ms-4 me-0">
+                    <ul class="list-inline mb-0 font-size-18">
+                      <li class="list-inline-item">
+                        <a href="javascript:void(0);" class="text-muted px-1">
+                          <i class="ri-download-2-line"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item dropdown" ngbDropdown>
+                        <a class="dropdown-toggle text-muted px-1" ngbDropdownToggle href="javascript: void(0);"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-fill"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.action' |
+                            translate}}</a>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.another' |
+                            translate}}</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.delete' |
+                            translate}}</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>-->
+              <!-- end card -->
+
+              <!--<div class="card p-2 border mb-2">
+                <div class="d-flex align-items-center">
+                  <div class="avatar-sm me-3 ms-0">
+                    <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                      <i class="ri-file-text-fill"></i>
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="text-start">
+                      <h5 class="font-size-14 mb-1">{{'chat.rightpanel.attachedfile.file4.name' | translate}}</h5>
+                      <p class="text-muted font-size-13 mb-0">{{'chat.rightpanel.attachedfile.file4.size' | translate}}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="ms-4 me-0">
+                    <ul class="list-inline mb-0 font-size-18">
+                      <li class="list-inline-item">
+                        <a href="javascript:void(0);" class="text-muted px-1">
+                          <i class="ri-download-2-line"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item dropdown" ngbDropdown>
+                        <a class="dropdown-toggle text-muted px-1" ngbDropdownToggle href="javascript:void(0);"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ri-more-fill"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.action' |
+                            translate}}</a>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.another' |
+                            translate}}</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item"
+                             href="javascript:void(0);">{{'chat.rightpanel.attachedfile.dropdown.delete' |
+                            translate}}</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>-->
+              <!-- end card -->
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+        <!-- End Attached Files card -->
+      </div>
+      <!-- end profile-user-accordion -->
+    </perfect-scrollbar>
+    <!-- end user-profile-desc -->
+
+  </div><!--end offcanvas-body-->
+</ng-template>
+
+<!-- Center Modal -->
+<ng-template #centerDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">{{"chat.tabs.chats.messages.forward.title" | translate}}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');"></button>
+  </div>
+  <div class="modal-body">
+    <div class="p-2 card-body">
+      <div data-simplebar="init" style="max-height: 200px;">
+        <div class="simplebar-wrapper" style="margin: 0px;">
+          <div class="simplebar-height-auto-observer-wrapper">
+            <div class="simplebar-height-auto-observer"></div>
+          </div>
+          <div class="simplebar-mask">
+            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+              <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content"
+                   style="height: auto; overflow: hidden scroll;">
+                <div class="simplebar-content" style="padding: 0px;">
+                  <div *ngFor="let item of contactsList">
+                    <div class="p-3 font-weight-bold text-primary">{{item.key}}</div>
+                    <ul class="list-unstyled contact-list">
+                      <li *ngFor="let item of item.contacts">
+                        <div class="form-check">
+                          <input id="memberCheck_{{item.id}}" type="checkbox" class="form-check-input form-check-input"
+                                 value="{{item.id}}" (click)="addForwarder($event, item.id)">
+                          <label for="{{item.id}}" class="form-check-label">{{item.email}}</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="simplebar-placeholder" style="width: auto; height: 1666px;"></div>
+        </div>
+        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+          <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+        </div>
+        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+          <div class="simplebar-scrollbar" style="height: 25px; transform: translate3d(0px, 0px, 0px); display: block;">
+          </div>
+        </div>
+      </div>
+      <div class="border-0 modal-footer"><button class="btn btn-primary" (click)="forwardMessage();modal.dismiss('Cross click');">{{"chat.tabs.chats.messages.forward.button" | translate}}</button></div>
+    </div>
+  </div>
+</ng-template>

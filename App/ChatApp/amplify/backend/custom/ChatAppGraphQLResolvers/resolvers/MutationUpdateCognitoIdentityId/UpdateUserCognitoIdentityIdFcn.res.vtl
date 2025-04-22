@@ -1,0 +1,5 @@
+#if($util.isNull($ctx.result) || ($ctx.result.size() == 0))
+  $util.error("Cognito Identity Id already set.")
+#end
+
+$util.toJson($ctx.result)

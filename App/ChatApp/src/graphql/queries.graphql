@@ -1,0 +1,362 @@
+# this is an auto generated file. This will be overwritten
+query Me {
+  me {
+    id
+    cognitoIdentityId
+    email
+    name
+    avatarPath
+    status
+    userConversations {
+      nextToken
+    }
+    messages {
+      nextToken
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    cognitoIdentityId
+    email
+    name
+    avatarPath
+    status
+    userConversations {
+      nextToken
+    }
+    messages {
+      nextToken
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+query ListUsers(
+  $id: ID
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listUsers(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      cognitoIdentityId
+      email
+      name
+      avatarPath
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+  }
+}
+query GetUserConversation($id: ID!) {
+  getUserConversation(id: $id) {
+    id
+    conversationId
+    userId
+    noUnread
+    conversation {
+      id
+      isGroup
+      lastMessageId
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      cognitoIdentityId
+      email
+      name
+      avatarPath
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListUserConversations(
+  $id: ID
+  $filter: ModelUserConversationFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listUserConversations(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      conversationId
+      userId
+      noUnread
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetConversation($id: ID!) {
+  getConversation(id: $id) {
+    id
+    isGroup
+    messages {
+      nextToken
+    }
+    lastMessageId
+    lastMessage {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    userConversations {
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListConversations(
+  $id: ID
+  $filter: ModelConversationFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listConversations(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      isGroup
+      lastMessageId
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetMessage($id: ID!) {
+  getMessage(id: $id) {
+    id
+    content
+    type
+    createdAt
+    updatedAt
+    replyToMessageId
+    replyToMessage {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    authorId
+    conversationId
+    isSent
+  }
+}
+query ListMessages(
+  $id: ID
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listMessages(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    nextToken
+  }
+}
+query UsersByCognitoIdentityIdAndEmail(
+  $cognitoIdentityId: String!
+  $email: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  usersByCognitoIdentityIdAndEmail(
+    cognitoIdentityId: $cognitoIdentityId
+    email: $email
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      cognitoIdentityId
+      email
+      name
+      avatarPath
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+  }
+}
+query UserConversationsByConversationId(
+  $conversationId: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserConversationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userConversationsByConversationId(
+    conversationId: $conversationId
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      conversationId
+      userId
+      noUnread
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query UserConversationsByUserId(
+  $userId: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserConversationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userConversationsByUserId(
+    userId: $userId
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      conversationId
+      userId
+      noUnread
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query MessagesByAuthorIdAndCreatedAt(
+  $authorId: ID!
+  $createdAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  messagesByAuthorIdAndCreatedAt(
+    authorId: $authorId
+    createdAt: $createdAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    nextToken
+  }
+}
+query MessagesByConversationIdAndCreatedAt(
+  $conversationId: ID!
+  $createdAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  messagesByConversationIdAndCreatedAt(
+    conversationId: $conversationId
+    createdAt: $createdAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    nextToken
+  }
+}

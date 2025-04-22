@@ -1,0 +1,33 @@
+
+#set ($item1 = {})
+$util.qr($item1.put("id", $util.autoId()))
+$util.qr($item1.put("conversationId", ${context.prev.result.id}))
+$util.qr($item1.put("userId", ${ctx.identity.sub}))
+$util.qr($item1.put("noUnread", 0))
+$util.qr($item1.put("createdAt", ${ctx.stash.defaultValues.createdAt}))
+$util.qr($item1.put("updatedAt", ${ctx.stash.defaultValues.updatedAt}))
+
+#set ($item2 = {})
+$util.qr($item2.put("id", $util.autoId()))
+$util.qr($item2.put("conversationId", ${context.prev.result.id}))
+$util.qr($item2.put("userId", ${ctx.args.userId}))
+$util.qr($item2.put("noUnread", 0))
+$util.qr($item2.put("createdAt", ${ctx.stash.defaultValues.createdAt}))
+$util.qr($item2.put("updatedAt", ${ctx.stash.defaultValues.updatedAt}))
+
+#set( $items = [] )
+$util.qr($items.add($item1))
+$util.qr($items.add($item2))
+
+#set( $userConversationData = [] )
+#foreach($item in $items)
+    $util.qr($userConversationData.add($util.dynamodb.toMapValues($item)))
+#end
+
+{
+    "version" : "2018-05-29",
+    "operation" : "BatchPutItem",
+    "tables" : {
+        "$ctx.stash.DS.UserConversationTable": $utils.toJson($userConversationData)
+    }
+}

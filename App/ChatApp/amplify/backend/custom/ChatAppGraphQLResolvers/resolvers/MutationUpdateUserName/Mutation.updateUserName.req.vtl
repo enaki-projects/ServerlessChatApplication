@@ -1,0 +1,10 @@
+#set ($name = $ctx.args.name.trim())
+
+#if( !$name || $name == "" )
+	$util.error("Empty user name not allowed")
+#end
+
+#set( $createdAt = $util.time.nowISO8601() )
+$util.qr($ctx.stash.put("name", $name))
+
+{}

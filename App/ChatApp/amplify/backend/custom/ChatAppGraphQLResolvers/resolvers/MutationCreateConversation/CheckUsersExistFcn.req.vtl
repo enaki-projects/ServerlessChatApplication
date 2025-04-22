@@ -1,0 +1,17 @@
+#set( $userIds = $ctx.stash.userIds )
+#set($ids = [])
+#foreach($id in $userIds)
+    #set($map = {})
+    $util.qr($map.put("id", $util.dynamodb.toString($id)))
+    $util.qr($ids.add($map))
+#end
+
+{
+    "operation" : "BatchGetItem",
+    "tables" : {
+        "$ctx.stash.DS.UserTable": {
+            "keys": $util.toJson($ids),
+            "consistentRead": true
+        }
+    }
+}

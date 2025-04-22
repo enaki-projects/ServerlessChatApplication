@@ -1,0 +1,90 @@
+
+.bg-selected {
+  background-color: #25a4a4 !important;
+}
+
+.arrival,{
+  border: 1px solid #CFD8DC;
+  color: #9E9E9E;
+  cursor: pointer;
+}
+
+.arrival.active {
+  background-color: #304FFE;
+  color: #fff !important;
+  border: 1px solid #304FFE;
+}
+
+#green {
+  color: #388E3C;
+  background-color: #C8E6C9;
+  padding: 5px 9px;
+  cursor: pointer;
+}
+
+#blue {
+  background-color: #BBDEFB;
+  color: #1976D2;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.user-profile-picture {
+  width: 100%;
+  object-fit: cover;
+  overflow:hidden;
+  position:relative;
+}
+
+.blockquote {
+  font-family: "Times New Roman", serif;
+  font-size: medium;
+}
+
+.card:hover img {
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: 0.7;
+}
+
+.card img {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; /* Make the picture taking the size of it's parent */
+  width: 100%; /* This if for the object-fit */
+  height: 100%; /* This if for the object-fit */
+  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+  object-position: center;
+  transform: scale(1.0, 1.0);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+
+.card-img-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.member-icons {
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 0;
+}
+
+.card-img-wrapper:hover .member-icons {
+  bottom: 0;
+  opacity: 1;
+}
+
+.animate {
+  transition: all 0.3s ease-in-out;
+}
+
+.my-scrollbar {
+  overflow-x: hidden
+}

@@ -1,0 +1,395 @@
+{
+  "login": {
+    "title": "Se connecter",
+    "message": "Connectez-vous pour continuer à utiliser Chatvia.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre adresse email",
+        "validation": {
+          "required": "L'email est obligatoire.",
+          "invalid": "L'email est invalide. Veuillez fournir une adresse email valide."
+        }
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "Entrez votre mot de passe",
+        "validation": {
+          "required": "Le mot de passe est obligatoire."
+        }
+      },
+      "button": {
+        "text": "Se connecter"
+      },
+      "forgotlink": "Mot de passe oublié ?"
+    },
+    "signuptext": "Vous n'avez pas de compte ?",
+    "signuplink": "Inscrivez-vous maintenant"
+  },
+  "signup": {
+    "title": "S'inscrire",
+    "message": "Obtenez votre compte Chatvia maintenant.",
+    "form": {
+      "username": {
+        "label": "Nom d'utilisateur",
+        "placeholder": "Entrez votre nom d'utilisateur",
+        "validation": {
+          "required": "Le nom d'utilisateur est obligatoire."
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre adresse email",
+        "validation": {
+          "required": "L'email est obligatoire.",
+          "invalid": "L'email est invalide. Veuillez fournir une adresse email valide."
+        }
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "Entrez votre mot de passe",
+        "validation": {
+          "required": "Le mot de passe est obligatoire."
+        }
+      },
+      "confirmPassword": {
+        "label": "Confirmez le mot de passe",
+        "placeholder": "Entrez à nouveau votre mot de passe",
+        "validation": {
+          "required": "La confirmation du mot de passe est obligatoire."
+        }
+      },
+      "button": {
+        "text": "S'inscrire"
+      },
+      "notice": "En vous inscrivant, vous acceptez les",
+      "term-text": "Conditions d'utilisation de Chatvia"
+    },
+    "signintext": "Vous avez déjà un compte ?",
+    "signinlink": "Se connecter"
+  },
+  "confirm-registration": {
+    "title": "Confirmation",
+    "message": "Veuillez confirmer votre inscription.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre email",
+        "validation": {
+          "required": "L'email est obligatoire.",
+          "invalid": "L'email n'est pas valide. Veuillez fournir un email valide."
+        }
+      },
+      "code": {
+        "label": "Code",
+        "placeholder": "Entrez le code reçu",
+        "validation": {
+          "required": "Le code est obligatoire."
+        }
+      },
+      "button": {
+        "confirm": {"text": "Confirmer"},
+        "resend": {"text": "Renvoyer le code"}
+      },
+      "notice": "En vous inscrivant, vous acceptez les",
+      "term-text": "Conditions d'utilisation"
+    },
+    "signintext": "Déjà inscrit ?",
+    "signinlink": "Se connecter"
+  },
+  "confirm-recovery": {
+    "title": "Confirmation",
+    "message": "Réinitialisez votre mot de passe et confirmez votre code de récupération.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre email",
+        "validation": {
+          "required": "L'email est obligatoire.",
+          "invalid": "L'email n'est pas valide. Veuillez fournir un email valide."
+        }
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "Entrez votre mot de passe",
+        "validation": {
+          "required": "Le mot de passe est obligatoire."
+        }
+      },
+      "confirmPassword": {
+        "label": "Confirmez le mot de passe",
+        "placeholder": "Entrez votre mot de passe à nouveau",
+        "validation": {
+          "required": "La confirmation du mot de passe est obligatoire."
+        }
+      },
+      "code": {
+        "label": "Code",
+        "placeholder": "Entrez le code reçu",
+        "validation": {
+          "required": "Le code est obligatoire."
+        }
+      },
+      "button": {
+        "confirm": {"text": "Confirmer"},
+        "resend": {"text": "Renvoyer le code"}
+      },
+      "notice": "En vous inscrivant, vous acceptez les",
+      "term-text": "Conditions d'utilisation"
+    },
+    "signintext": "Déjà inscrit ?",
+    "signinlink": "Se connecter"
+  },
+  "resetpassword": {
+    "title": "Réinitialiser le mot de passe",
+    "message": "Réinitialisez votre mot de passe avec Chatvia.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre adresse email",
+        "validation": {
+          "required": "L'adresse email est obligatoire.",
+          "invalid": "L'adresse email est invalide. Veuillez fournir une adresse email valide."
+        }
+      },
+      "button": {
+        "text": "Réinitialiser"
+      }
+    },
+    "signintext": "Vous en souvenez-vous ?",
+    "signinlink": "Se connecter"
+  },
+  "tooltip": {
+    "profile": "Profil",
+    "chats": "Chats",
+    "contacts": "Contacts",
+    "settings": "Paramètres",
+    "theme": "Thème sombre/clair",
+    "emoji": "Emoji",
+    "language": {
+      "en": "Anglais",
+      "ro": "Roumain",
+      "ru": "Russe",
+      "fr": "Français"
+    }
+  },
+  "chat": {
+      "title": "Commencer une conversation",
+      "tabs": {
+        "profile": {
+          "title": "Mon profil",
+          "status": {
+            "active": "Disponible",
+            "away": "Absent",
+            "offline": "Hors ligne"
+          },
+          "about": {
+            "text": "À propos",
+            "name": {
+              "text": "Nom"
+            },
+            "email": {
+              "text": "Email"
+            }
+          }
+        },
+        "chats": {
+          "title": "Discussions",
+          "search": {
+            "placeholder": "Rechercher des utilisateurs..."
+          },
+          "chatpanelheader": {
+            "search": {
+              "placeholder": "Rechercher des messages..."
+            }
+          },
+          "messages": {
+            "forward": {
+              "title": "Transférer à...",
+              "button": "Transférer"
+            },
+            "type": {
+              "deleted": "Ce message a été supprimé"
+            },
+            "reply": {
+              "you": "Vous"
+            },
+            "date": {
+              "today": "Aujourd'hui",
+              "yesterday": "Hier"
+            },
+            "dropdown": {
+              "reply": "Répondre",
+              "copy": "Copier",
+              "save": "Enregistrer",
+              "forward": "Transférer",
+              "delete": "Supprimer"
+            },
+            "filedropdown": {
+              "share": "Partager",
+              "delete": "Supprimer"
+            },
+            "input": {
+              "enter-message": "Entrer un message...",
+              "attached-file": "Fichier attaché"
+            }
+          }
+        },
+        "contacts": {
+          "contacts": {
+            "title": "Contacts",
+            "search": {
+              "placeholder": "Rechercher des utilisateurs ..."
+            },
+            "list": {
+              "dropdown": {
+                "open-chat": "Ouvrir le chat"
+              }
+            }
+          },
+          "search": {
+            "title": "Recherche d'amis ...",
+            "filter": {
+              "email": {
+                "title": "E-mail",
+                "operator": {
+                  "equals": "Égal",
+                  "contains": "Contient",
+                  "begins-with": "Commence par"
+                },
+                "input": {
+                  "placeholder": "Entrer ici...",
+                  "enable": "Activer"
+                }
+              },
+              "name": {
+                "title": "Nom",
+                "operator": {
+                  "equals": "Égal",
+                  "contains": "Contient",
+                  "begins-with": "Commence par"
+                },
+                "input": {
+                  "placeholder": "Entrer ici...",
+                  "enable": "Activer"
+                }
+              },
+              "actions": {
+                "search": "Rechercher",
+                "reset": "Réinitialiser"
+              }
+            },
+            "user-card": {
+              "name": "Nom",
+              "email": "E-mail",
+              "joined": "Rejoint",
+              "actions": {
+                "added": "Ajouté",
+                "add-contact": "Ajouter un contact"
+              }
+            },
+            "fetch": {
+              "fetch-more": "Charger plus"
+            },
+            "modal": {
+              "title": "Ajouter une conversation",
+              "name": "Nom",
+              "email": "E-mail",
+              "joined": "Rejoint",
+              "button": {
+                "add": "Ajouter un contact",
+                "close": "Fermer"
+              }
+            }
+          }
+        },
+        "settings": {
+          "title": "Paramètres",
+          "status": {
+            "active": "Disponible",
+            "away": "Absent",
+            "offline": "Hors ligne",
+            "dropdown": {
+              "active": "Disponible",
+              "away": "Absent"
+            }
+          },
+          "info": {
+            "title": "Infos personnelles",
+            "name": {
+              "text": "Nom"
+            },
+            "email": {
+              "text": "E-mail"
+            },
+            "edit": "Modifier",
+            "save": "Enregistrer"
+          },
+          "help": {
+            "title": "Aide",
+            "faqs": "FAQ",
+            "contact": "Contact",
+            "policy": "Conditions d'utilisation et politique de confidentialité"
+          }
+        }
+      },
+      "profiledropdown": {
+        "profile": "Profil",
+        "setting": "Réglage",
+        "logout": "Se déconnecter"
+      },
+      "rightpanel": {
+        "status": {
+          "active": "Disponible",
+          "away": "Absent",
+          "offline": "Hors ligne"
+        },
+        "about": {
+          "text": "À propos",
+          "name": {
+            "text": "Nom"
+          },
+          "email": {
+            "text": "Email"
+          }
+        },
+        "attachedfile": {
+          "text": "Fichiers joints"
+        }
+      }
+  },
+  "notifications": {
+    "server": {
+      "authorization": "Nom d'utilisateur ou mot de passe incorrect.",
+      "user_not_found": "L'utilisateur n'existe pas.",
+      "account_already_exists": "Un compte avec l'e-mail fourni existe déjà.",
+      "code_mismatch": "Code de vérification invalide fourni, veuillez réessayer.",
+      "user_not_confirmed": "Utilisateur non confirmé.",
+      "invalid_parameter": "Impossible de réinitialiser le mot de passe de l'utilisateur car il n'y a pas d'e-mail ou de numéro de téléphone enregistré/validé"
+    },
+    "validation": {
+      "invalid": {
+        "password": "Les mots de passe ne sont pas identiques.",
+        "data": "Données invalides."
+      }
+    },
+    "success": {
+      "login": "Connexion réussie",
+      "registration": "Inscription réussie",
+      "reset": "Réinitialisation réussie",
+      "confirmation": "Confirmation réussie"
+    },
+    "init": {
+      "reset": "Réinitialisation initialisée",
+      "registration": "Inscription initialisée"
+    },
+    "info": {
+      "code_resent": "Code renvoyé"
+    }
+  },
+  "footer": {
+    "language": "Sélectionnez votre langue",
+    "name": "Chatvia. Crafted with ",
+    "text": " by Themesbrand"
+  }
+}

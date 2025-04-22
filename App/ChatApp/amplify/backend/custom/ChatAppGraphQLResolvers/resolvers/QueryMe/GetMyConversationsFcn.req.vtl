@@ -1,0 +1,24 @@
+#set($ids = [])
+#foreach($id in ${ctx.stash.myConversationsIds})
+    #set($map = {})
+    $util.qr($map.put("id", $util.dynamodb.toString($id)))
+    $util.qr($ids.add($map))
+#end
+
+$util.qr($ctx.stash.put("hasConversations", false))
+
+#if ($ids.size() == 0)
+	#return
+#else
+  $util.qr($ctx.stash.put("hasConversations", true))
+
+  {
+      "operation" : "BatchGetItem",
+      "tables" : {
+          "$ctx.stash.DS.ConversationTable": {
+              "keys": $util.toJson($ids),
+              "consistentRead": true
+          }
+      }
+  }
+#end

@@ -1,0 +1,22 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "ChatAppAuth",
+  "functionName": "ChatAppAuthPostConfirmation",
+  "resourceName": "ChatAppAuthPostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "ChatAppAuthPostConfirmation",
+  "skipEdit": true,
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "userTable",
+      "environmentVariableName": "USER_TABLE"
+    }
+  ]
+}

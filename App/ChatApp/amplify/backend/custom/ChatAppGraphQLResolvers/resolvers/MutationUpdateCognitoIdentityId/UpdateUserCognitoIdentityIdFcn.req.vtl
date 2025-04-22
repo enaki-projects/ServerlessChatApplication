@@ -1,0 +1,23 @@
+#set( $updatedAt = $util.time.nowISO8601() )
+
+{
+  "version": "2018-05-29",
+  "operation": "UpdateItem",
+  "key": {
+    "id": $util.dynamodb.toDynamoDBJson($ctx.identity.claims.get("sub"))
+  },
+  "update": {
+    "expression": "set #cognitoIdentityId = :cognitoIdentityId, #updatedAt = :updatedAt",
+    "expressionNames": {
+      "#cognitoIdentityId": "cognitoIdentityId",
+      "#updatedAt": "updatedAt"
+    },
+    "expressionValues": {
+      ":cognitoIdentityId": $util.dynamodb.toDynamoDBJson($ctx.stash.cognitoIdentityId),
+      ":updatedAt": $util.dynamodb.toDynamoDBJson($updatedAt),
+    }
+  },
+  "condition": {
+      "expression": "attribute_not_exists(cognitoIdentityId)"
+    }
+}

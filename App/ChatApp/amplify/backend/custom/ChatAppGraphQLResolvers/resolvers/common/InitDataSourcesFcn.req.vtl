@@ -1,0 +1,7 @@
+$util.qr($ctx.stash.put("DS", {}))
+$util.qr($ctx.stash.DS.put("ConversationTable", "Conversation-{graphql_api_id}-{env_id}"))
+$util.qr($ctx.stash.DS.put("MessageTable", "Message-{graphql_api_id}-{env_id}"))
+$util.qr($ctx.stash.DS.put("UserConversationTable", "UserConversation-{graphql_api_id}-{env_id}"))
+$util.qr($ctx.stash.DS.put("UserTable", "User-{graphql_api_id}-{env_id}"))
+
+$util.toJson({})

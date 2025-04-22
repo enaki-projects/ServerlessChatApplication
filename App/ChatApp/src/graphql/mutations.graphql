@@ -1,0 +1,185 @@
+# this is an auto generated file. This will be overwritten
+mutation UpdateUserName($name: String!) {
+  updateUserName(name: $name) {
+    id
+    cognitoIdentityId
+    email
+    name
+    avatarPath
+    status
+    userConversations {
+      nextToken
+    }
+    messages {
+      nextToken
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation UpdateUserStatus($status: Status!) {
+  updateUserStatus(status: $status) {
+    id
+    cognitoIdentityId
+    email
+    name
+    avatarPath
+    status
+    userConversations {
+      nextToken
+    }
+    messages {
+      nextToken
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation UpdateCognitoIdentityId($cognitoIdentityId: String!) {
+  updateCognitoIdentityId(cognitoIdentityId: $cognitoIdentityId) {
+    id
+    cognitoIdentityId
+    email
+    name
+    avatarPath
+    status
+    userConversations {
+      nextToken
+    }
+    messages {
+      nextToken
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation CreateConversation($userId: ID!) {
+  createConversation(userId: $userId) {
+    id
+    isGroup
+    messages {
+      nextToken
+    }
+    lastMessageId
+    lastMessage {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    userConversations {
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateMessage(
+  $content: String!
+  $type: String!
+  $conversationId: ID!
+  $replyToMessageId: ID
+) {
+  createMessage(
+    content: $content
+    type: $type
+    conversationId: $conversationId
+    replyToMessageId: $replyToMessageId
+  ) {
+    id
+    content
+    type
+    createdAt
+    updatedAt
+    replyToMessageId
+    replyToMessage {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    authorId
+    conversationId
+    isSent
+  }
+}
+mutation DeleteMessage($messageId: ID!) {
+  deleteMessage(messageId: $messageId) {
+    id
+    content
+    type
+    createdAt
+    updatedAt
+    replyToMessageId
+    replyToMessage {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    authorId
+    conversationId
+    isSent
+  }
+}
+mutation NotifyUserOfConversationCreation($userId: ID!, $conversationId: ID!) {
+  notifyUserOfConversationCreation(
+    userId: $userId
+    conversationId: $conversationId
+  ) {
+    userId
+    conversationId
+  }
+}
+mutation UpdateUserConversationForNotification(
+  $userConversationId: ID!
+  $reset: Boolean
+) {
+  updateUserConversationForNotification(
+    userConversationId: $userConversationId
+    reset: $reset
+  ) {
+    id
+    conversationId
+    userId
+    noUnread
+    conversation {
+      id
+      isGroup
+      lastMessageId
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      cognitoIdentityId
+      email
+      name
+      avatarPath
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+  }
+}

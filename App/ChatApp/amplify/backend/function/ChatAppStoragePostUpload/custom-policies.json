@@ -1,0 +1,10 @@
+[
+  {
+    "Action": ["dynamodb:UpdateItem"],
+    "Resource": ["arn:aws:dynamodb:*:*:table/*"]
+  },
+  {
+    "Action": ["dynamodb:Query"],
+    "Resource": ["arn:aws:dynamodb:*:*:table/*"]
+  }
+]

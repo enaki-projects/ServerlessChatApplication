@@ -1,0 +1,14 @@
+
+#if( $ctx.stash.conversationExists )
+
+	$util.error("Conversation already exists.", "400")
+#end
+
+{
+    "operation" : "PutItem",
+    "key" : {
+        ## If object "id" should come from GraphQL arguments, change to $util.dynamodb.toDynamoDBJson($ctx.args.id)
+        "id": $util.dynamodb.toDynamoDBJson($util.autoId()),
+    },
+    "attributeValues" : $util.dynamodb.toMapValuesJson($ctx.stash.defaultValues)
+}

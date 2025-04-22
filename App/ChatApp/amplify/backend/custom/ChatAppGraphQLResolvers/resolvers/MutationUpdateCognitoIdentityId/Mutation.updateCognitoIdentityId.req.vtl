@@ -1,0 +1,10 @@
+#set ($cognitoIdentityId = $ctx.args.cognitoIdentityId.trim())
+
+#if( !$cognitoIdentityId || $cognitoIdentityId == "" )
+	$util.error("Empty user cognito identity id not allowed")
+#end
+
+#set( $createdAt = $util.time.nowISO8601() )
+$util.qr($ctx.stash.put("cognitoIdentityId", $cognitoIdentityId))
+
+{}

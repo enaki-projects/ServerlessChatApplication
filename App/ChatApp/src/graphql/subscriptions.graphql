@@ -1,0 +1,78 @@
+# this is an auto generated file. This will be overwritten
+subscription OnUpdateUserStatus($id: ID!) {
+  onUpdateUserStatus(id: $id) {
+    id
+    cognitoIdentityId
+    email
+    name
+    avatarPath
+    status
+    userConversations {
+      nextToken
+    }
+    messages {
+      nextToken
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+subscription OnMessageMutation($conversationId: ID!) {
+  onMessageMutation(conversationId: $conversationId) {
+    id
+    content
+    type
+    createdAt
+    updatedAt
+    replyToMessageId
+    replyToMessage {
+      id
+      content
+      type
+      createdAt
+      updatedAt
+      replyToMessageId
+      authorId
+      conversationId
+      isSent
+    }
+    authorId
+    conversationId
+    isSent
+  }
+}
+subscription OnNotifyUserOfConversationCreation($userId: ID!) {
+  onNotifyUserOfConversationCreation(userId: $userId) {
+    userId
+    conversationId
+  }
+}
+subscription OnUpdateUserConversationForNotification($userId: ID!) {
+  onUpdateUserConversationForNotification(userId: $userId) {
+    id
+    conversationId
+    userId
+    noUnread
+    conversation {
+      id
+      isGroup
+      lastMessageId
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      cognitoIdentityId
+      email
+      name
+      avatarPath
+      status
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+  }
+}

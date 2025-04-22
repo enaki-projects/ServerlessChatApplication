@@ -1,0 +1,19 @@
+$util.qr($ctx.stash.put("hasAuth", true))
+#set( $isAuthorized = false )
+#set( $primaryFieldMap = {} )
+#if( $util.authType() == "API Key Authorization" )
+
+#end
+#if( $util.authType() == "User Pool Authorization" )
+  #set( $idClaim = $util.defaultIfNull($ctx.identity.claims.get("sub"), null) )
+  #set( $currentClaim1 = $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), null)) )
+  #if( !$util.isNull($idClaim) && !$util.isNull($currentClaim1) )
+      #set( $isAuthorized = true )
+  #end
+#end
+
+#if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) )
+  $util.unauthorized()
+#end
+
+$util.toJson({})

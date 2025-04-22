@@ -1,0 +1,5 @@
+#if ( $ctx.stash.get("hasConversations") == true )
+  $util.toJson(${ctx.result.data.get($ctx.stash.DS.ConversationTable)})
+#else
+  $util.toJson(null)
+#end

@@ -1,0 +1,33 @@
+.thumbnail {
+  width: 150px;
+  height: 100px;
+}
+
+.isImage {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.isFile {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.file-box {
+  background-color: #f5f7fb;
+}
+
+.dropdown-menu {
+  background-color: #f5f7fb;
+  color: #63697c;
+}
+
+.custom-bg {
+  background-color: #f5f7fb;
+  color: #63697c;
+}
+
+body[data-layout-mode=dark] .custom-bg {
+  background-color: #262e35;
+  color: white;
+}

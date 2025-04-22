@@ -1,0 +1,13 @@
+#if($ctx.error)
+    $util.error($ctx.error.message, $ctx.error.type)
+#end
+
+$util.qr($ctx.stash.put("myConversationsIds", []))
+#foreach( $item in $ctx.result.items )
+	$util.qr($ctx.stash.myConversationsIds.add($item.conversationId))
+#end
+
+$util.log.info($ctx.stash.myConversationsIds)
+
+## Pass back the result from DynamoDB. **
+$util.toJson({})

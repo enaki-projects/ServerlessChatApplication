@@ -1,0 +1,395 @@
+{
+    "login": {
+        "title": "Sign in",
+        "message": "Sign in to continue to Chatvia.",
+        "form": {
+            "email": {
+                "label": "Email",
+                "placeholder": "Enter your email",
+                "validation": {
+                    "required": "Email is mandatory.",
+                    "invalid": "Email is invalid. Please provide valid email."
+                }
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Enter your password",
+                "validation": {
+                    "required": "Password is mandatory."
+                }
+            },
+            "button": {
+                "text": "Sign In"
+            },
+            "forgotlink": "Forgot your password?"
+        },
+        "signuptext": "Don't have an account ?",
+        "signuplink": "Register now"
+    },
+    "signup": {
+      "title": "Sign up",
+      "message": "Get your Chatvia account now.",
+      "form": {
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter username",
+          "validation": {
+            "required": "Username is mandatory."
+          }
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "validation": {
+            "required": "Email is mandatory.",
+            "invalid": "Email is invalid. Please provide valid email."
+          }
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "validation": {
+            "required": "Password is mandatory."
+          }
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Enter your password again",
+          "validation": {
+            "required": "Confirm Password is mandatory."
+          }
+        },
+        "button": {
+          "text": "Sign Up"
+        },
+        "notice": "By registering you agree to the Chatvia",
+        "term-text": "Terms of Use"
+      },
+      "signintext": "Already have an account ?",
+      "signinlink": "SignIn"
+    },
+    "confirm-registration": {
+      "title": "Confirmation",
+      "message": "Please confirm your registration.",
+      "form": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "validation": {
+            "required": "Email is mandatory.",
+            "invalid": "Email is invalid. Please provide valid email."
+          }
+        },
+        "code": {
+          "label": "Code",
+          "placeholder": "Enter your received code",
+          "validation": {
+            "required": "Code is mandatory."
+          }
+        },
+        "button": {
+          "confirm": {"text": "Confirm"},
+          "resend": {"text": "Resend Code"}
+        },
+        "notice": "By registering you agree to the Chatvia",
+        "term-text": "Terms of Use"
+      },
+      "signintext": "Already have an account ?",
+      "signinlink": "SignIn"
+    },
+    "confirm-recovery": {
+      "title": "Confirmation",
+      "message": "Please reset your password and confirm your recovery code.",
+      "form": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "validation": {
+            "required": "Email is mandatory.",
+            "invalid": "Email is invalid. Please provide valid email."
+          }
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "validation": {
+            "required": "Password is mandatory."
+          }
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Enter your password again",
+          "validation": {
+            "required": "Confirm Password is mandatory."
+          }
+        },
+        "code": {
+          "label": "Code",
+          "placeholder": "Enter your received code",
+          "validation": {
+            "required": "Code is mandatory."
+          }
+        },
+        "button": {
+          "confirm": {"text": "Confirm"},
+          "resend": {"text": "Resend Code"}
+        },
+        "notice": "By registering you agree to the Chatvia",
+        "term-text": "Terms of Use"
+      },
+      "signintext": "Already have an account ?",
+      "signinlink": "SignIn"
+    },
+    "resetpassword": {
+        "title": "Reset Password",
+        "message": "Reset Password With Chatvia.",
+        "form": {
+            "email": {
+                "label": "Email",
+                "placeholder": "Enter your email",
+                "validation": {
+                    "required": "Email is mandatory.",
+                    "invalid": "Email is invalid. Please provide valid email."
+                }
+            },
+            "button": {
+                "text": "Reset"
+            }
+        },
+        "signintext": " Remember It ?",
+        "signinlink": "Signin"
+    },
+    "tooltip": {
+      "profile": "Profile",
+      "chats": "Chats",
+      "contacts": "Contacts",
+      "settings": "Settings",
+      "theme": "Dark/light theme",
+      "emoji": "Emoji",
+      "language": {
+        "en": "English",
+        "ro": "Romanian",
+        "ru": "Russian",
+        "fr": "French"
+      }
+    },
+    "chat": {
+        "title": "Start conversation",
+        "tabs": {
+            "profile": {
+                "title": "My Profile",
+                "status": {
+                  "active": "Available",
+                  "away": "Away",
+                  "offline": "Offline"
+                },
+                "about": {
+                    "text": "About",
+                    "name": {
+                      "text": "Name"
+                    },
+                    "email": {
+                      "text": "Email"
+                    }
+                }
+            },
+            "chats": {
+                "title": "Chats",
+                "search": {
+                    "placeholder": "Search users..."
+                },
+                "chatpanelheader": {
+                  "search": {
+                    "placeholder": "Search messages..."
+                  }
+                },
+                "messages": {
+                  "forward": {
+                    "title": "Forward to ...",
+                    "button": "Forward"
+                  },
+                  "type": {
+                    "deleted": "This message was deleted"
+                  },
+                  "reply": {
+                    "you": "You"
+                  },
+                  "date": {
+                    "today": "Today",
+                    "yesterday": "Yesterday"
+                  },
+                  "dropdown": {
+                    "reply": "Reply",
+                    "copy": "Copy",
+                    "save": "Save",
+                    "forward": "Forward",
+                    "delete": "Delete"
+                  },
+                  "filedropdown": {
+                    "share": "Share",
+                    "delete": "Delete"
+                  },
+                  "input": {
+                    "enter-message": "Enter Message...",
+                    "attached-file": "Attached file"
+                  }
+                }
+            },
+            "contacts": {
+                "contacts": {
+                  "title": "Contacts",
+                  "search": {
+                    "placeholder": "Search users..."
+                  },
+                  "list": {
+                    "dropdown": {
+                      "open-chat": "Open Chat"
+                    }
+                  }
+                },
+                "search": {
+                  "title": "Search for friends ...",
+                  "filter": {
+                    "email": {
+                      "title": "Email",
+                      "operator": {
+                        "equals": "Equals",
+                        "contains": "Contains",
+                        "begins-with": "Begins With"
+                      },
+                      "input": {
+                        "placeholder": "Input here...",
+                        "enable": "Enable"
+                      }
+                    },
+                    "name": {
+                      "title": "Name",
+                      "operator": {
+                        "equals": "Equals",
+                        "contains": "Contains",
+                        "begins-with": "Begins With"
+                      },
+                      "input": {
+                        "placeholder": "Input here...",
+                        "enable": "Enable"
+                      }
+                    },
+                    "actions": {
+                      "search": "Search",
+                      "reset": "Reset"
+                    }
+                  },
+                  "user-card": {
+                    "name": "Name",
+                    "email": "Email",
+                    "joined": "Joined",
+                    "actions": {
+                      "added": "Added",
+                      "add-contact": "Add contact"
+                    }
+                  },
+                  "fetch": {
+                    "fetch-more": "Fetch more"
+                  },
+                  "modal": {
+                    "title": "Add Conversation",
+                    "name": "Name",
+                    "email": "Email",
+                    "joined": "Joined",
+                    "button": {
+                      "add": "Add Contact",
+                      "close": "Close"
+                    }
+                  }
+                }
+            },
+            "settings": {
+                "title": "Settings",
+                "status": {
+                    "active": "Available",
+                    "away": "Away",
+                    "offline": "Offline",
+                    "dropdown": {
+                        "active": "Available",
+                        "away": "Away"
+                    }
+                },
+                "info": {
+                    "title": "Personal Info",
+                    "name": {
+                        "text": "Name"
+                    },
+                    "email": {
+                        "text": "Email"
+                    },
+                  "edit": "Edit",
+                  "save": "Save"
+                },
+                "help": {
+                    "title": "Help",
+                    "faqs": "FAQs",
+                    "contact": "Contact",
+                    "policy": "Terms & Privacy policy"
+                }
+            }
+        },
+        "profiledropdown": {
+            "profile": "Profile",
+            "setting": "Setting",
+            "logout": "Log out"
+        },
+        "rightpanel": {
+            "status": {
+              "active": "Available",
+              "away": "Away",
+              "offline": "Offline"
+            },
+            "about": {
+                "text": "About",
+                "name": {
+                    "text": "Name"
+                },
+                "email": {
+                    "text": "Email"
+                }
+            },
+            "attachedfile": {
+                "text": "Attached Files"
+            }
+        }
+    },
+    "notifications": {
+      "server": {
+        "authorization": "Incorrect username or password.",
+        "user_not_found": "User does not exist.",
+        "account_already_exists": "An account with the given email already exists.",
+        "code_mismatch": "Invalid verification code provided, please try again.",
+        "user_not_confirmed": "User not confirmed.",
+        "invalid_parameter": "Cannot reset password for the user as there is no registered/verified email or phone_number"
+      },
+      "validation": {
+        "invalid": {
+          "password": "Passwords are not identical.",
+          "data": "Invalid Data."
+        }
+      },
+      "success": {
+        "login": "Login successful",
+        "registration": "Registration successful",
+        "reset": "Recovery successful",
+        "confirmation": "Confirmation successful"
+      },
+      "init": {
+        "reset": "Recovery initialized",
+        "registration": "Registration initialized"
+      },
+      "info": {
+        "code_resent": "Code resent"
+      }
+    },
+    "footer": {
+        "language": "Select your language",
+        "name": "Chatvia. Crafted with ",
+        "text": " by Themesbrand"
+    }
+}

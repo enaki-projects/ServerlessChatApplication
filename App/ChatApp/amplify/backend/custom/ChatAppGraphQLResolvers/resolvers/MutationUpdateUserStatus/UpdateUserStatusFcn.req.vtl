@@ -1,0 +1,20 @@
+#set( $updatedAt = $util.time.nowISO8601() )
+
+{
+  "version": "2018-05-29",
+  "operation": "UpdateItem",
+  "key" : {
+    "id" : $util.dynamodb.toDynamoDBJson($ctx.identity.claims.get("sub"))
+  },
+  "update": {
+    "expression" : "set #status = :status, #updatedAt = :updatedAt",
+    "expressionNames" : {
+         "#status" : "status",
+         "#updatedAt" : "updatedAt"
+     },
+     "expressionValues" : {
+         ":status" : $util.dynamodb.toDynamoDBJson($ctx.args.status),
+         ":updatedAt" : $util.dynamodb.toDynamoDBJson($updatedAt)
+     }
+  }
+}

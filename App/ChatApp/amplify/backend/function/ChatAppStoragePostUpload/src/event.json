@@ -1,0 +1,34 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "us-west-2",
+      "eventTime": "2023-03-12T14:02:49.177Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AWS:AROARQVEMKPBCCCRZEKV4:CognitoIdentityCredentials"
+      },
+      "requestParameters": { "sourceIPAddress": "0.0.0.0" },
+      "responseElements": {
+        "x-amz-request-id": "random",
+        "x-amz-id-2": "random/x18MhGKBoa1Y8kBBweKZ5kiAJ+oyHp6TRFQiA4Za"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "6caa0835-0dae-4f3d-b4f6-08541eff9e19",
+        "bucket": {
+          "name": "chat-app-data95749-devp",
+          "ownerIdentity": { "principalId": "A3EX59LB3ZHHTF" },
+          "arn": "arn:aws:s3:::chat-app-data95749-devp"
+        },
+        "object": {
+          "key": "protected/us-west-2%3Ae705817d-4c94-4f0f-a455-120a3bdb110b/avatar/0ad40402-bd15-4056-b3c3-b29ae398dbea.jpg",
+          "size": 69880,
+          "eTag": "a5b29225d67b3ac1dbe4e5d84cab4f74",
+          "sequencer": "00640DDB8917F56B1B"
+        }
+      }
+    }
+  ]
+}

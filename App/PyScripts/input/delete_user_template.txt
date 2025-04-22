@@ -1,0 +1,4 @@
+aws cognito-idp admin-delete-user \
+    --user-pool-id {pool_id} \
+    --region {region} \
+    --username {email}

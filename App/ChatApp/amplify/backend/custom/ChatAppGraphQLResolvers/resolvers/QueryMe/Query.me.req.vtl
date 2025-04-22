@@ -1,0 +1,16 @@
+## [Start] Get Request template. **
+#set( $GetRequest = {
+  "version": "2018-05-29",
+  "operation": "Query"
+} )
+
+#set( $query = {
+    "expression": "id = :id",
+    "expressionValues": {
+        ":id":     $util.parseJson($util.dynamodb.toDynamoDBJson($ctx.identity.claims.get("sub")))
+    }
+} )
+
+$util.qr($GetRequest.put("query", $query))
+$util.toJson($GetRequest)
+## [End] Get Request template. **

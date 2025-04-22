@@ -1,0 +1,395 @@
+{
+  "login": {
+    "title": "Conectare",
+    "message": "Conectați-vă pentru a continua la Chatvia.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Introduceți adresa dvs. de email",
+        "validation": {
+          "required": "Adresa de email este obligatorie.",
+          "invalid": "Adresa de email nu este validă. Vă rugăm să furnizați o adresă de email validă."
+        }
+      },
+      "password": {
+        "label": "Parolă",
+        "placeholder": "Introduceți parola dvs.",
+        "validation": {
+          "required": "Parola este obligatorie."
+        }
+      },
+      "button": {
+        "text": "Conectare"
+      },
+      "forgotlink": "Ați uitat parola?"
+    },
+    "signuptext": "Nu aveți un cont?",
+    "signuplink": "Înregistrați-vă acum"
+  },
+  "signup": {
+    "title": "Înregistrare",
+    "message": "Obțineți-vă contul Chatvia acum.",
+    "form": {
+      "username": {
+        "label": "Nume utilizator",
+        "placeholder": "Introduceți numele dvs. de utilizator",
+        "validation": {
+          "required": "Numele utilizatorului este obligatoriu."
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Introduceți adresa dvs. de email",
+        "validation": {
+          "required": "Adresa de email este obligatorie.",
+          "invalid": "Adresa de email nu este validă. Vă rugăm să furnizați o adresă de email validă."
+        }
+      },
+      "password": {
+        "label": "Parolă",
+        "placeholder": "Introduceți parola dvs.",
+        "validation": {
+          "required": "Parola este obligatorie."
+        }
+      },
+      "confirmPassword": {
+        "label": "Confirmați parola",
+        "placeholder": "Introduceți din nou parola dvs.",
+        "validation": {
+          "required": "Confirmarea parolei este obligatorie."
+        }
+      },
+      "button": {
+        "text": "Înregistrare"
+      },
+      "notice": "Prin înregistrare sunteți de acord cu",
+      "term-text": "Termenii și condițiile de utilizare"
+    },
+    "signintext": "Aveți deja un cont?",
+    "signinlink": "Conectare"
+  },
+  "confirm-registration": {
+    "title": "Confirmare",
+    "message": "Vă rugăm să confirmați înregistrarea.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Introduceți adresa dvs. de email",
+        "validation": {
+          "required": "Email-ul este obligatoriu.",
+          "invalid": "Email-ul este invalid. Vă rugăm să furnizați un email valid."
+        }
+      },
+      "code": {
+        "label": "Cod",
+        "placeholder": "Introduceți codul primit",
+        "validation": {
+          "required": "Codul este obligatoriu."
+        }
+      },
+      "button": {
+        "confirm": {"text": "Confirmare"},
+        "resend": {"text": "Retrimiteți codul"}
+      },
+      "notice": "Prin înregistrare sunteți de acord cu",
+      "term-text": "Termenii de utilizare"
+    },
+    "signintext": "Aveți deja un cont?",
+    "signinlink": "Autentificare"
+  },
+  "confirm-recovery": {
+    "title": "Confirmare",
+    "message": "Vă rugăm să resetați parola și să confirmați codul de recuperare.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Introduceți adresa dvs. de email",
+        "validation": {
+          "required": "Email-ul este obligatoriu.",
+          "invalid": "Email-ul este invalid. Vă rugăm să furnizați un email valid."
+        }
+      },
+      "password": {
+        "label": "Parolă",
+        "placeholder": "Introduceți parola",
+        "validation": {
+          "required": "Parola este obligatorie."
+        }
+      },
+      "confirmPassword": {
+        "label": "Confirmați parola",
+        "placeholder": "Introduceți parola din nou",
+        "validation": {
+          "required": "Este necesar să confirmați parola."
+        }
+      },
+      "code": {
+        "label": "Cod",
+        "placeholder": "Introduceți codul primit",
+        "validation": {
+          "required": "Codul este obligatoriu."
+        }
+      },
+      "button": {
+        "confirm": {"text": "Confirmare"},
+        "resend": {"text": "Retrimiteți codul"}
+      },
+      "notice": "Prin înregistrare sunteți de acord cu",
+      "term-text": "Termenii de utilizare"
+    },
+    "signintext": "Aveți deja un cont?",
+    "signinlink": "Autentificare"
+  },
+  "resetpassword": {
+    "title": "Resetare parolă",
+    "message": "Resetați parola cu Chatvia.",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Introduceți adresa dvs. de email",
+        "validation": {
+          "required": "Email-ul este obligatoriu.",
+          "invalid": "Email-ul este invalid. Vă rugăm să furnizați un email valid."
+        }
+      },
+      "button": {
+        "text": "Resetare"
+      }
+    },
+    "signintext": "V-ați amintit parola?",
+    "signinlink": "Autentificare"
+  },
+  "tooltip": {
+    "profile": "Profil",
+    "chats": "Conversații",
+    "contacts": "Contacte",
+    "settings": "Setări",
+    "theme": "Temă întunecată/luminoasă",
+    "emoji": "Emoji",
+    "language": {
+      "en": "Engleză",
+      "ro": "Română",
+      "ru": "Rusă",
+      "fr": "Franceză"
+    }
+  },
+  "chat": {
+    "title": "Începe conversația",
+    "tabs": {
+      "profile": {
+        "title": "Profilul meu",
+        "status": {
+          "active": "Disponibil",
+          "away": "Plecat",
+          "offline": "Offline"
+        },
+        "about": {
+          "text": "Despre",
+          "name": {
+            "text": "Nume"
+          },
+          "email": {
+            "text": "Email"
+          }
+        }
+      },
+      "chats": {
+        "title": "Conversații",
+        "search": {
+          "placeholder": "Căutați utilizatori..."
+        },
+        "chatpanelheader": {
+          "search": {
+            "placeholder": "Căutați mesaje..."
+          }
+        },
+        "messages": {
+          "forward": {
+            "title": "Transmite ...",
+            "button": "Transmite"
+          },
+          "type": {
+            "deleted": "Acest mesaj a fost șters"
+          },
+          "reply": {
+            "you": "Tu"
+          },
+          "date": {
+            "today": "Astăzi",
+            "yesterday": "Ieri"
+          },
+          "dropdown": {
+            "reply": "Răspunde",
+            "copy": "Copiază",
+            "save": "Salvează",
+            "forward": "Transmite",
+            "delete": "Șterge"
+          },
+          "filedropdown": {
+            "share": "Partajează",
+            "delete": "Șterge"
+          },
+          "input": {
+            "enter-message": "Introduceți mesajul...",
+            "attached-file": "Fișier atașat"
+          }
+        }
+      },
+      "contacts": {
+        "contacts": {
+          "title": "Contacte",
+          "search": {
+            "placeholder": "Caută utilizatori..."
+          },
+          "list": {
+            "dropdown": {
+              "open-chat": "Deschide conversația"
+            }
+          }
+        },
+        "search": {
+          "title": "Caută prieteni ...",
+          "filter": {
+            "email": {
+              "title": "Email",
+              "operator": {
+                "equals": "Este egal cu",
+                "contains": "Conține",
+                "begins-with": "Începe cu"
+              },
+              "input": {
+                "placeholder": "Introduceți aici...",
+                "enable": "Activează"
+              }
+            },
+            "name": {
+              "title": "Nume",
+              "operator": {
+                "equals": "Este egal cu",
+                "contains": "Conține",
+                "begins-with": "Începe cu"
+              },
+              "input": {
+                "placeholder": "Introduceți aici...",
+                "enable": "Activează"
+              }
+            },
+            "actions": {
+              "search": "Caută",
+              "reset": "Resetează"
+            }
+          },
+          "user-card": {
+            "name": "Nume",
+            "email": "Email",
+            "joined": "Alăturat",
+            "actions": {
+              "added": "Adăugat",
+              "add-contact": "Adaugă contact"
+            }
+          },
+          "fetch": {
+            "fetch-more": "Adună mai multe"
+          },
+          "modal": {
+            "title": "Adaugă conversație",
+            "name": "Nume",
+            "email": "Email",
+            "joined": "Alăturat",
+            "button": {
+              "add": "Adaugă contact",
+              "close": "Închide"
+            }
+          }
+        }
+      },
+      "settings": {
+        "title": "Setări",
+        "status": {
+          "active": "Disponibil",
+          "away": "Plecat",
+          "offline": "Deconectat",
+          "dropdown": {
+            "active": "Disponibil",
+            "away": "Plecat"
+          }
+        },
+        "info": {
+          "title": "Informații personale",
+          "name": {
+            "text": "Nume"
+          },
+          "email": {
+            "text": "Email"
+          },
+          "edit": "Editează",
+          "save": "Salvează"
+        },
+        "help": {
+          "title": "Ajutor",
+          "faqs": "Întrebări frecvente",
+          "contact": "Contact",
+          "policy": "Termeni și politică de confidențialitate"
+        }
+      }
+    },
+    "profiledropdown": {
+      "profile": "Profil",
+      "setting": "Setări",
+      "logout": "Deconectare"
+    },
+    "rightpanel": {
+      "status": {
+        "active": "Disponibil",
+        "away": "Ocupat",
+        "offline": "Deconectat"
+      },
+      "about": {
+        "text": "Despre",
+        "name": {
+          "text": "Nume"
+        },
+        "email": {
+          "text": "Email"
+        }
+      },
+      "attachedfile": {
+        "text": "Fișiere atașate"
+      }
+    }
+  },
+  "notifications": {
+    "server": {
+      "authorization": "Numele de utilizator sau parola incorectă.",
+      "user_not_found": "Utilizatorul nu există.",
+      "account_already_exists": "Un cont cu e-mailul dat există deja.",
+      "code_mismatch": "A fost furnizat un cod de verificare nevalid. Încercați din nou.",
+      "user_not_confirmed": "Utilizatorul nu a fost confirmat.",
+      "invalid_parameter": "Nu se poate reseta parola pentru utilizator, deoarece nu există un e-mail sau un număr de telefon înregistrat/verificat"
+    },
+    "validation": {
+      "invalid": {
+        "password": "Parolele nu sunt identice.",
+        "data": "Date invalide."
+      }
+    },
+    "success": {
+      "login": "Autentificare cu succes",
+      "registration": "Înregistrare cu succes",
+      "reset": "Recuperare cu succes",
+      "confirmation": "Confirmare cu succes"
+    },
+    "init": {
+      "reset": "Recuperare inițializată",
+      "registration": "Înregistrare inițializată"
+    },
+    "info": {
+      "code_resent": "Cod retrimis"
+    }
+  },
+  "footer": {
+    "language": "Selectați limba",
+    "name": "Chatvia. Crafted with ",
+    "text": " by Themesbrand"
+  }
+}

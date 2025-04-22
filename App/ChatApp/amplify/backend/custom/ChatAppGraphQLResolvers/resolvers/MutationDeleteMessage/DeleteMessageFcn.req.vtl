@@ -1,0 +1,22 @@
+#set( $updatedAt = $util.time.nowISO8601() )
+
+{
+      "version": "2018-05-29",
+      "operation": "UpdateItem",
+      "key" : {
+        "id" : $util.dynamodb.toDynamoDBJson($context.arguments.messageId)
+      },
+      "update": {
+        "expression" : "set #content = :content, #type = :type, #updatedAt = :updatedAt",
+        "expressionNames" : {
+             "#content" : "content",
+             "#type" : "type",
+             "#updatedAt" : "updatedAt"
+         },
+         "expressionValues" : {
+            ":content" : $util.dynamodb.toDynamoDBJson(""),
+            ":type" : $util.dynamodb.toDynamoDBJson("deleted"),
+            ":updatedAt" : $util.dynamodb.toDynamoDBJson($updatedAt)
+         }
+      }
+  }

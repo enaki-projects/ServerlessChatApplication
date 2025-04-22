@@ -1,0 +1,59 @@
+
+#set ($content = $ctx.args.content.trim())
+#set ($type = $ctx.args.type.trim())
+
+#set( $validTypes = [
+  "application/json",
+  "application/xml",
+  "application/pdf",
+  "application/msword",
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/vnd.ms-powerpoint",
+  "application/vnd.rar",
+  "application/zip",
+  "application/x-tar",
+  "application/gzip"
+] )
+
+#if( !$content || $content == "" )
+	$util.error("Empty message not allowed")
+#end
+
+#if( !$type ))
+	$util.error("Message type need to not be empty")
+#end
+
+#if( !$type.startsWith("text") && !$type.startsWith("image") && !$type.startsWith("audio") && !$type.startsWith("video"))
+  #set ($isTypeValid = false)
+  #foreach( $validType in $validTypes )
+    #if( $type == $validType )
+      #set ($isTypeValid = true)
+      #break
+    #end
+  #end
+
+  #if( $isTypeValid == false ))
+  	$util.error("Unsupported message type")
+  #end
+#end
+
+#set( $createdAt = $util.time.nowISO8601() )
+$util.qr($ctx.stash.put("defaultValues", $util.defaultIfNull($ctx.stash.defaultValues, {})))
+$util.qr($ctx.stash.defaultValues.put("isSent", true))
+$util.qr($ctx.stash.defaultValues.put("createdAt", $createdAt))
+$util.qr($ctx.stash.defaultValues.put("updatedAt", $createdAt))
+$util.qr($ctx.stash.defaultValues.put("authorId", $ctx.identity.sub))
+$util.qr($ctx.stash.defaultValues.put("conversationId", $ctx.args.conversationId))
+$util.qr($ctx.stash.defaultValues.put("content", $content))
+$util.qr($ctx.stash.defaultValues.put("type", $type))
+#if ($ctx.args.replyToMessageId)
+  $util.qr($ctx.stash.defaultValues.put("replyToMessageId", $ctx.args.replyToMessageId))
+#end
+
+$util.qr($ctx.stash.put("lastMessageContent", $content))
+$util.qr($ctx.stash.put("lastMessageType", $type))
+
+{}

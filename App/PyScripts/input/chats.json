@@ -1,0 +1,144 @@
+[
+  {
+    "user1": "mabel",
+    "user2": "dipper",
+    "conversation": {
+      "createdAt": "2022-08-01T00:00:19.473Z",
+      "messages": [
+        {
+          "content": "How long's it been? Third grade, maybe?",
+          "authorId": "dipper",
+          "createdAt": "2022-08-06T13:00:19.473Z"
+        },
+        {
+          "content": "That's right. And I'm here to deliver you an upside-downington-tastic message! \uD83D\uDE07",
+          "authorId": "mabel",
+          "createdAt": "2022-08-06T13:5:19.473Z"
+        },
+        {
+          "content": "Is it the message that we're getting too old for this sort of thing?",
+          "authorId": "dipper",
+          "createdAt": "2022-08-06T15:00:19.473Z"
+        },
+        {
+          "content": "Um, kinda, actually\uD83E\uDD72",
+          "authorId": "mabel",
+          "createdAt": "2022-08-06T15:01:19.473Z"
+        },
+        {
+          "content": "It's that we are exactly one week away from our 13th birthday! ",
+          "authorId": "mabel",
+          "createdAt": "2022-08-08T15:03:19.473Z"
+        },
+        {
+          "content": " Whoa! \uD83E\uDD76",
+          "authorId": "dipper",
+          "createdAt": "2022-08-08T15:13:19.473Z"
+        },
+        {
+          "content": "Our birthday's coming up already?",
+          "authorId": "dipper",
+          "createdAt": "2022-08-08T15:14:19.473Z"
+        },
+        {
+          "content": "Soon we're gonna be actual teenagers! \uD83E\uDEE0",
+          "authorId": "dipper",
+          "createdAt": "2022-08-08T15:14:19.473Z"
+        },
+        {
+          "content": "There is something wrong with you. ",
+          "authorId": "mabel",
+          "createdAt": "2022-12-08T15:14:19.473Z"
+        },
+        {
+          "content": "There is something wrong with both of us.",
+          "authorId": "dipper",
+          "createdAt": "2022-12-08T15:20:19.473Z"
+        },
+        {
+          "content": "\uD83C\uDF84 \uD83C\uDF33 \uD83E\uDEE7",
+          "authorId": "mabel",
+          "createdAt": "2022-12-08T15:20:19.473Z"
+        }
+      ]
+    }
+  },
+  {
+    "user1": "dipper",
+    "user2": "soos",
+    "conversation": {
+      "createdAt": "2022-08-15T00:00:19.473Z",
+      "messages": [
+        {
+          "content": "Dudes!",
+          "authorId": "soos",
+          "createdAt": "2022-07-15T13:00:19.473Z"
+        },
+        {
+          "content": "I found some kind of secret hidden room in the Shack! \uD83D\uDED6",
+          "authorId": "soos",
+          "createdAt": "2022-07-15T13:01:19.473Z"
+        },
+        {
+          "content": "Whoa-hoh!  \uD83D\uDE2E",
+          "authorId": "dipper",
+          "createdAt": "2022-07-15T13:01:19.473Z"
+        },
+        {
+          "content": "Experiment 78? What is this place? ",
+          "authorId": "dipper",
+          "createdAt": "2022-07-17T10:01:19.473Z"
+        },
+        {
+          "content": "I don't know dude ...",
+          "authorId": "soos",
+          "createdAt": "2022-07-17T10:15:11.473Z"
+        },
+        {
+          "content": "this room gives me major, creep-o vibes.",
+          "authorId": "soos",
+          "createdAt": "2022-07-17T10:15:11.473Z"
+        },
+        {
+          "content": "\uD83D\uDE30",
+          "authorId": "soos",
+          "createdAt": "2022-07-17T10:20:11.473Z"
+        },
+        {
+          "content": "Maybe there's nothing creepy going on in this room",
+          "authorId": "dipper",
+          "createdAt": "2022-07-17T10:25:11.473Z"
+        },
+        {
+          "content": "\uD83D\uDE43",
+          "authorId": "dipper",
+          "createdAt": "2022-07-17T10:27:11.473Z"
+        }
+      ]
+    }
+  },
+  {
+    "user1": "dipper",
+    "user2": "eren",
+    "conversation": {
+      "createdAt": "2022-08-15T00:00:19.473Z",
+      "messages": []
+    }
+  },
+  {
+    "user1": "mikasa",
+    "user2": "eren",
+    "conversation": {
+      "createdAt": "2022-08-15T00:00:19.473Z",
+      "messages": []
+    }
+  },
+  {
+    "user1": "pikachu",
+    "user2": "mikasa",
+    "conversation": {
+      "createdAt": "2022-08-15T00:00:19.473Z",
+      "messages": []
+    }
+  }
+]

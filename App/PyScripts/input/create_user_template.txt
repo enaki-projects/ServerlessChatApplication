@@ -1,0 +1,20 @@
+aws cognito-idp sign-up \
+--client-id {client_id} \
+--username {email} \
+--password {password} \
+--user-attributes Name=email,Value={email} \
+--region {region} \
+--profile default
+
+aws cognito-idp admin-confirm-sign-up \
+--user-pool-id {pool_id} \
+--username {email} \
+--region {region} \
+--profile default
+
+aws cognito-idp admin-update-user-attributes \
+--user-pool-id {pool_id} \
+--username {email} \
+--user-attributes Name=email_verified,Value=true \
+--region {region} \
+--profile default

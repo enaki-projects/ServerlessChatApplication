@@ -1,0 +1,20 @@
+#set( $updatedAt = $util.time.nowISO8601() )
+
+{
+    "version": "2018-05-29",
+    "operation": "UpdateItem",
+    "key" : {
+      "id" : $util.dynamodb.toDynamoDBJson($ctx.args.conversationId)
+    },
+    "update": {
+      "expression" : "set #lastMessageId = :lastMessageId, #updatedAt = :updatedAt",
+      "expressionNames" : {
+           "#lastMessageId" : "lastMessageId",
+           "#updatedAt" : "updatedAt"
+       },
+       "expressionValues" : {
+          ":lastMessageId" : $util.dynamodb.toDynamoDBJson($ctx.prev.result.id),
+          ":updatedAt" : $util.dynamodb.toDynamoDBJson($updatedAt)
+       }
+    }
+}

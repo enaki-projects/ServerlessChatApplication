@@ -1,0 +1,10 @@
+{
+  "modules": "custom",
+  "resourceName": "ChatAppAuthPostConfirmation",
+  "apiChatAppGraphQLApiGraphQLAPIIdOutput": {
+    "Fn::GetAtt": [
+      "apiChatAppGraphQLApi",
+      "Outputs.GraphQLAPIIdOutput"
+    ]
+  }
+}

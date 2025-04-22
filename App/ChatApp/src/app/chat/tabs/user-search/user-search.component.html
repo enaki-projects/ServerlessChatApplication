@@ -1,0 +1,142 @@
+<div class="p-3 p-lg-4 border-bottom">
+  <h5 class="font-size-24 mb-0 text-center">{{'chat.tabs.contacts.search.title' | translate}}</h5>
+
+  <!-- Start tab section-->
+</div>
+<perfect-scrollbar (psYReachEnd)="onYReachEnd($event)" class="chat-conversation my-scrollbar">
+
+  <div class="p-3 p-lg-4 border-bottom">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div class="row d-flex justify-content-around">
+          <div class="card col-5 col-xs-12 p-0 border">
+              <div class="card-header text-center bg-light" [ngClass]="{ 'bg-selected': f.emailEnable.value }">
+                <h5> {{'chat.tabs.contacts.search.filter.email.title' | translate}}</h5>
+              </div>
+              <div class="card-body">
+                <div class="row ">
+                  <div class="col-12 col-lg-4 text-center px-0 arrival" [ngClass]="{'active': f.emailOperator.value === 'eq'}" (click)="setEmailOperator('eq')">
+                    <div class="block py-1">{{'chat.tabs.contacts.search.filter.email.operator.equals' | translate}}</div>
+                  </div>
+                  <div class="col-12 col-lg-4 text-center px-0 arrival" [ngClass]="{'active': f.emailOperator.value === 'contains'}" (click)="setEmailOperator('contains')">
+                    <div class="block py-1">{{'chat.tabs.contacts.search.filter.email.operator.contains' | translate}}</div>
+                  </div>
+                  <div class="col-12 col-lg-4 text-center px-0 arrival" [ngClass]="{'active': f.emailOperator.value === 'beginsWith'}" (click)="setEmailOperator('beginsWith')">
+                    <div class="block py-1">{{'chat.tabs.contacts.search.filter.email.operator.begins-with' | translate}}</div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="px-0 input-group mb-3 bg-soft-light input-group-lg rounded-lg">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text border-light text-muted">
+                              <i class="ri-mail-line"></i>
+                            </span>
+                    </div>
+                    <input type="text" class="form-control bg-soft-light border-light"
+                           placeholder="{{'chat.tabs.contacts.search.filter.email.input.placeholder' | translate}}" formControlName="email">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-light" [ngClass]="{ 'bg-selected': f.emailEnable.value }">
+                <input type="checkbox" formControlName="emailEnable">
+                {{'chat.tabs.contacts.search.filter.email.input.enable' | translate}}
+              </div>
+            </div>
+          <div class="card col-5 col-xs-12 p-0 border">
+              <div class="card-header text-center bg-light" [ngClass]="{ 'bg-selected': f.nameEnable.value }">
+                <h5> {{'chat.tabs.contacts.search.filter.name.title' | translate}}</h5>
+              </div>
+              <div class="card-body">
+                <div class="row ">
+                  <div class="col-12 col-lg-4 text-center px-0 arrival" [ngClass]="{'active': f.nameOperator.value === 'eq'}" (click)="setNameOperator('eq')">
+                    <div class="block py-1">{{'chat.tabs.contacts.search.filter.name.operator.equals' | translate}}</div>
+                  </div>
+                  <div class="col-12 col-lg-4 text-center px-0 arrival" [ngClass]="{'active': f.nameOperator.value === 'contains'}" (click)="setNameOperator('contains')">
+                    <div class="block py-1">{{'chat.tabs.contacts.search.filter.name.operator.contains' | translate}}</div>
+                  </div>
+                  <div class="col-12 col-lg-4 text-center px-0 arrival" [ngClass]="{'active': f.nameOperator.value === 'beginsWith'}" (click)="setNameOperator('beginsWith')">
+                    <div class="block py-1">{{'chat.tabs.contacts.search.filter.name.operator.begins-with' | translate}}</div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="px-0 input-group mb-3 bg-soft-light input-group-lg rounded-lg">
+                    <div class="input-group-prepend">
+                            <span class="input-group-text border-light text-muted">
+                              <i class="ri-user-line"></i>
+                            </span>
+                    </div>
+                    <input type="text" class="form-control bg-soft-light border-light"
+                           placeholder="{{'chat.tabs.contacts.search.filter.name.input.placeholder' | translate}}" formControlName="name">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-light" [ngClass]="{ 'bg-selected': f.nameEnable.value }">
+                <input type="checkbox" formControlName="nameEnable">
+                {{'chat.tabs.contacts.search.filter.name.input.enable' | translate}}
+              </div>
+            </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-5 col-xs-12">
+          <div class="row justify-content-around">
+            <button type="submit" class="btn btn-primary col-5">{{'chat.tabs.contacts.search.filter.actions.search' | translate}}</button>
+            <button type="button" (click)="resetForm()" class="btn btn-secondary col-5">{{'chat.tabs.contacts.search.filter.actions.reset' | translate}}</button>
+          </div>
+        </div>
+        <div class="col-5 col-xs-12"></div>
+      </div>
+    </form>
+
+  </div>
+  <div class="row justify-content-around mt-3" >
+    <ngx-spinner type="ball-scale-multiple" [fullScreen]="false" [name]="USER_SEARCH_SPINNER"></ngx-spinner>
+    <div *ngFor="let user of foundUsers" class="card col-xs-6 col-md-4 col-lg-3 border p-0 m-1" >
+
+      <img class="img-fluid img-thumbnail card-img-top user-profile-picture" src="{{this.foundUsersImgSrcMap.get(user.id)}}" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text"><b>{{'chat.tabs.contacts.search.user-card.name' | translate}}: </b> {{user.name}}</p>
+        <p class="card-text"><b>{{'chat.tabs.contacts.search.user-card.email' | translate}}: </b> {{user.email}}</p>
+        <p class="card-text"><b>{{'chat.tabs.contacts.search.user-card.joined' | translate}}: </b>{{user.createdAt | date: 'MMMM d, y'	}}</p>
+      </div>
+      <div class="card-footer text-center bg-light">
+        <button [disabled]="friendIds.includes(user.id)" class="btn"
+                [ngClass]="friendIds.includes(user.id)? 'btn-warning': 'btn-success'"  (click)="openContactsModal(content, user)">
+          <span *ngIf="friendIds.includes(user.id)">{{'chat.tabs.contacts.search.user-card.actions.added' | translate}}</span>
+          <span *ngIf="!friendIds.includes(user.id)">{{'chat.tabs.contacts.search.user-card.actions.add-contact' | translate}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="text-center pt-2" *ngIf="this.nextToken">
+    <button [disabled]="fetching" class="btn btn-danger" (click)="fetchMore()"><i class="ri-download-cloud-line"></i> {{'chat.tabs.contacts.search.fetch.fetch-more' | translate}}</button>
+  </div>
+</perfect-scrollbar >
+<!-- Start Add contact Modal -->
+<ng-template #content let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title font-size-16" id="addContact-exampleModalLabel">
+        {{'chat.tabs.contacts.search.modal.title' | translate}}</h5>
+      <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')">
+      </button>
+    </div>
+    <div class="modal-body p-4">
+      <div class="card border p-0 m-1" >
+        <img class="img-fluid img-thumbnail card-img-top user-profile-picture" src="{{this.foundUsersImgSrcMap.get(modalUser.id)}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text"><b>{{'chat.tabs.contacts.search.modal.name' | translate}}: </b> {{modalUser.name}}</p>
+          <p class="card-text"><b>{{'chat.tabs.contacts.search.modal.email' | translate}}: </b> {{modalUser.email}}</p>
+          <p class="card-text"><b>{{'chat.tabs.contacts.search.modal.joined' | translate}}: </b>{{modalUser.createdAt | date: 'MMMM d, y'	}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-link"
+              (click)="modal.dismiss('Cross click')">{{'chat.tabs.contacts.search.modal.button.close' | translate}}</button>
+      <button type="button" [disabled]="friendIds.includes(modalUser.id)"
+              class="btn" [ngClass]="friendIds.includes(modalUser.id)? 'btn-warning': 'btn-success'" (click)="addConversation(modalUser)">
+        <span *ngIf="friendIds.includes(modalUser.id)">{{'chat.tabs.contacts.search.user-card.actions.added' | translate}}</span>
+        <span *ngIf="!friendIds.includes(modalUser.id)">{{'chat.tabs.contacts.search.user-card.actions.add-contact' | translate}}</span></button>
+    </div>
+  </div>
+</ng-template>
+<!-- End Add contact Modal -->

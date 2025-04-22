@@ -1,0 +1,42 @@
+#set( $updatedAt = $util.time.nowISO8601() )
+
+
+#if( $ctx.args.reset == true )
+  {
+      "version": "2018-05-29",
+      "operation": "UpdateItem",
+      "key" : {
+        "id" : $util.dynamodb.toDynamoDBJson($context.arguments.userConversationId)
+      },
+      "update": {
+        "expression" : "set #noUnread = :noUnread, #updatedAt = :updatedAt",
+        "expressionNames" : {
+             "#noUnread" : "noUnread",
+             "#updatedAt" : "updatedAt"
+         },
+         "expressionValues" : {
+             ":noUnread" : $util.dynamodb.toDynamoDBJson(0),
+             ":updatedAt" : $util.dynamodb.toDynamoDBJson($updatedAt)
+         }
+      }
+  }
+#else
+  {
+      "version": "2018-05-29",
+      "operation": "UpdateItem",
+      "key" : {
+        "id" : $util.dynamodb.toDynamoDBJson($context.arguments.userConversationId)
+      },
+      "update": {
+        "expression" : "set #noUnread = #noUnread + :noUnread, #updatedAt = :updatedAt",
+        "expressionNames" : {
+             "#noUnread" : "noUnread",
+             "#updatedAt" : "updatedAt"
+         },
+         "expressionValues" : {
+            ":noUnread" : $util.dynamodb.toDynamoDBJson(1),
+            ":updatedAt" : $util.dynamodb.toDynamoDBJson($updatedAt)
+         }
+      }
+  }
+#end

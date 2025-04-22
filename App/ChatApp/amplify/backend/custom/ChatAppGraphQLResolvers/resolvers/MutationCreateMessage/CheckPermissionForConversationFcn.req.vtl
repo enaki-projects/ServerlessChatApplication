@@ -1,0 +1,7 @@
+#foreach ($conversationId in $ctx.stash.myConversationsIds)
+	#if ( $conversationId == $ctx.stash.defaultValues.conversationId )
+    	#return
+    #end
+#end
+
+$util.unauthorized()

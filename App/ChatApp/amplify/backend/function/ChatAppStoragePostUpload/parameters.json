@@ -1,0 +1,8 @@
+{
+  "apiChatAppGraphQLApiGraphQLAPIIdOutput": {
+    "Fn::GetAtt": [
+      "apiChatAppGraphQLApi",
+      "Outputs.GraphQLAPIIdOutput"
+    ]
+  }
+}

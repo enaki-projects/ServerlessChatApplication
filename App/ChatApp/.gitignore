@@ -1,0 +1,67 @@
+# ========================
+# Amplify Security Exclusions
+# ========================
+#amplify-do-not-edit-begin
+amplify/\#current-cloud-backend/
+amplify/.config/local-*
+amplify/team-provider-info.json
+amplify/mock-data/
+amplify/backend/amplify-meta.json
+amplify/logs/
+aws-exports.js
+awsconfiguration.json
+amplifyconfiguration.*
+#amplify-do-not-edit-end
+
+# ========================
+# Angular Specific
+# ========================
+.angular/
+/dist/
+/bazel-out/
+*.log
+/build-analytics
+/modules/rollup-test/dist/
+pubspec.lock
+
+# ========================
+# Node.js
+# ========================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ========================
+# IDE & Editor
+# ========================
+.c9/
+.idea/
+.vscode/
+*.swp
+*.swo
+.vimrc
+.nvimrc
+.history/
+
+# ========================
+# System Files
+# ========================
+.DS_Store
+Thumbs.db
+.secret-*
+*secret.js
+
+# ========================
+# Environment Files
+# ========================
+.env
+.env.local
+.env*.local
+
+# ========================
+# CI/CD & Temporary Files
+# ========================
+month.txt
+.bazelrc.user
+.ng-dev.user*
+baseline.json

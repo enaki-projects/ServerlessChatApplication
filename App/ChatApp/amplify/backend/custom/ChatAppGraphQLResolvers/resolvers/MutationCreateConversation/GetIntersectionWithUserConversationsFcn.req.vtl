@@ -1,0 +1,27 @@
+## For output of this function
+$util.qr($ctx.stash.put("userConversationsIds", []))
+#if( $ctx.stash.myConversationsIds.size() == 0 )
+  #return
+#end
+
+## Prepare the filter conditions
+#set( $filterConditions = {} )
+$util.qr( $filterConditions.put("or", []) )
+#foreach( $item in $ctx.stash.myConversationsIds )
+	$util.qr($filterConditions.or.add({"conversationId": {"eq": $item}}))
+#end
+
+{
+    "operation" : "Query",
+    "index" : "byUser",
+    "query" : {
+        "expression": "#userId = :userId",
+        "expressionNames" : {
+        "#userId" : "userId"
+    },
+        "expressionValues" : {
+            ":userId" : $util.dynamodb.toDynamoDBJson($ctx.stash.userId)
+        }
+    },
+    "filter":  $util.transform.toDynamoDBFilterExpression($filterConditions)
+}

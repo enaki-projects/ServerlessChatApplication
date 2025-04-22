@@ -1,0 +1,12 @@
+#if ($ctx.args.replyToMessageId)
+  #if($ctx.error)
+      $util.error($ctx.error.message, $ctx.error.type)
+  #end
+
+  #if($ctx.result.conversationId != $ctx.stash.defaultValues.get("conversationId"))
+      ## In case of in-existing message or message from other conversation
+      $util.error("Not authorized to perform reply to this message.")
+  #end
+#end
+
+$util.toJson({})

@@ -1,0 +1,5 @@
+<div [ngStyle]="{height:height+'px',width:width+'px'}" *ngIf="isLoading">
+  <ngx-spinner type="ball-scale-multiple" [fullScreen]="false" [name]="name"></ngx-spinner>
+</div>
+<img [src]=image class="rounded border"
+     (load)="hideLoader()" (error)="hideLoader()" (click)="openImage()"/>
