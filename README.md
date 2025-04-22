@@ -26,14 +26,22 @@ Password: 1qaz2wsx
 | **Infrastructure**     | CloudFormation, Amplify              | IaC, CI/CD pipelines                 |
 
 
-## 📋 Architecture
-![System Architecture](https://github.com/enaki-projects/ServerlessChatApplication/blob/main/Documentation/ChatApp-Architecture.png)  
-
 ## 📽️ Demo
 
 Presentation Slides hosted [here](https://docs.google.com/presentation/d/1_p6wW6KyBkag2IygBa95vKQQEoDgxW4-/edit?usp=sharing&ouid=100319267693311271464&rtpof=true&sd=true).
 
 [![Demo](https://github.com/enaki-projects/ServerlessChatApplication/blob/main/Documentation/ChatApp-Demo.png)](https://www.youtube.com/watch?v=Lm9l-lrQcXg&list=PLD6xT8DPeCYdweBGFREKoigCH3T07-Rkv&index=1)
+
+
+## 📋 Architecture
+![System Architecture](https://github.com/enaki-projects/ServerlessChatApplication/blob/main/Documentation/ChatApp-Architecture.png)  
+
+### Use-Case Diagram
+![Use Case Diagram](https://github.com/enaki-projects/ServerlessChatApplication/blob/main/Documentation/ChatApp-UseCaseDiagram.png) 
+
+### Sequence Diagram
+![Use Case Diagram](https://github.com/enaki-projects/ServerlessChatApplication/blob/main/Documentation/ChatApp-SequenceDiagram.png)  
+
 
 ## References
 
